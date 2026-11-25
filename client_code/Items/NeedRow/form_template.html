@@ -1,0 +1,11 @@
+<div class="hr-wrap">
+<a class="hr-need" anvil:name="link" href="#home">
+  <span class="hr-need-ic" anvil:name="icon_box"><i class="ic" anvil:name="icon"></i></span>
+  <span class="hr-need-txt">
+    <anvil-component type="Label" name="title" prop:role='["strong"]' bind:text="self.item['title']"></anvil-component>
+    <anvil-component type="Label" name="sub" prop:role='["hr-sub"]' bind:text="self.item['sub']"></anvil-component>
+  </span>
+  <anvil-component type="Label" name="late" prop:text="Overdue" prop:role='["badge", "badge-bad"]' prop:visible="false"></anvil-component>
+  <i class="ic ic-chevron hr-need-go"></i>
+</a>
+</div>

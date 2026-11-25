@@ -1,0 +1,39 @@
+<anvil-form layout="HR_Platform.Layouts.Shell">
+  <anvil-block slot="content">
+    <div class="ui-wrap dc-page">
+      <div class="ui-page-head">
+        <div>
+          <h1>Policies and news</h1>
+          <p class="hr-lede">Company announcements and the handbook policies everyone works by.</p>
+        </div>
+      </div>
+      <div class="hr-cols dc-cols">
+        <section class="hr-panel dc-anns">
+          <div class="hr-sec-head">
+            <h2 class="hr-h dc-h-flat"><i class="ic ic-megaphone"></i>Announcements</h2>
+            <anvil-component type="Button" name="announce_button" prop:text="Post an announcement" prop:role='["btn", "btn-primary", "btn-sm", "ic-plus"]' prop:visible="false"></anvil-component>
+          </div>
+          <anvil-component type="RepeatingPanel" name="anns_panel" prop:item_template="HR_Platform.Items.AnnouncementCard" prop:role='["hr-anns", "dc-ann-list"]'></anvil-component>
+          <div class="ui-empty" anvil:name="no_anns">
+            <i class="ic ic-megaphone"></i>
+            <h3>No announcements yet</h3>
+            <anvil-component type="Label" name="no_anns_text" prop:text="Company news shows up here when HR posts it."></anvil-component>
+          </div>
+        </section>
+        <section class="hr-panel dc-policies">
+          <div class="hr-sec-head">
+            <h2 class="hr-h dc-h-flat"><i class="ic ic-book"></i>Policies</h2>
+            <anvil-component type="Button" name="policy_button" prop:text="New policy" prop:role='["btn", "btn-primary", "btn-sm", "ic-plus"]' prop:visible="false"></anvil-component>
+          </div>
+          <anvil-component type="Label" name="todo_line" prop:role='["msg-note", "dc-todo"]' prop:visible="false"></anvil-component>
+          <anvil-component type="RepeatingPanel" name="policies_panel" prop:item_template="HR_Platform.Items.PolicyRow" prop:role='["dc-policy-list"]'></anvil-component>
+          <div class="ui-empty" anvil:name="no_policies">
+            <i class="ic ic-book"></i>
+            <h3>No policies yet</h3>
+            <anvil-component type="Label" name="no_policies_text" prop:text="Your company's handbook policies will be listed here."></anvil-component>
+          </div>
+        </section>
+      </div>
+    </div>
+  </anvil-block>
+</anvil-form>

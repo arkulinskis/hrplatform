@@ -1,0 +1,75 @@
+<anvil-form layout="HR_Platform.Layouts.Shell">
+  <anvil-block slot="content">
+    <div class="ui-wrap ob-page ob-clpage">
+      <a class="hi-back" href="#onboarding"><i class="ic ic-back"></i>Onboarding</a>
+
+      <div anvil:name="found_part">
+        <div class="ob-head">
+          <anvil-component type="HR_Platform.Components.Avatar" name="av" prop:size="lg"></anvil-component>
+          <div class="ob-head-id">
+            <anvil-component type="Label" name="title_label" prop:role='["page-title", "hr-name"]' prop:text="Checklist"></anvil-component>
+            <div class="ob-head-meta">
+              <a anvil:name="person_link" href="#people" class="ob-person-link"><anvil-component type="Label" name="person" prop:role='["strong"]'></anvil-component></a>
+              <anvil-component type="Label" name="kind_badge" prop:role='["badge", "badge-brand"]'></anvil-component>
+              <anvil-component type="Label" name="date_line" prop:role='["hr-sub"]'></anvil-component>
+            </div>
+          </div>
+        </div>
+
+        <div class="hr-panel ob-progress">
+          <div class="ob-progress-top">
+            <anvil-component type="Label" name="progress_text" prop:role='["strong"]'></anvil-component>
+            <anvil-component type="Label" name="late_badge" prop:role='["badge", "badge-bad"]' prop:visible="false"></anvil-component>
+          </div>
+          <div class="hr-bar ob-bar" anvil:name="bar_box" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span anvil:name="bar"></span></div>
+          <anvil-component type="Label" name="complete_text" prop:role='["fine-print"]'></anvil-component>
+        </div>
+
+        <section class="ob-group" anvil:name="g_hr">
+          <h2 class="hr-h ob-group-h"><span class="ob-dot ob-role-hr" aria-hidden="true"></span>HR <anvil-component type="Label" name="c_hr" prop:role='["hi-inline", "fine-print"]'></anvil-component></h2>
+          <anvil-component type="RepeatingPanel" name="p_hr" prop:item_template="HR_Platform.Items.TaskRow" prop:role='["ob-tasks"]'></anvil-component>
+        </section>
+        <section class="ob-group" anvil:name="g_it">
+          <h2 class="hr-h ob-group-h"><span class="ob-dot ob-role-it" aria-hidden="true"></span>IT <anvil-component type="Label" name="c_it" prop:role='["hi-inline", "fine-print"]'></anvil-component></h2>
+          <anvil-component type="RepeatingPanel" name="p_it" prop:item_template="HR_Platform.Items.TaskRow" prop:role='["ob-tasks"]'></anvil-component>
+        </section>
+        <section class="ob-group" anvil:name="g_manager">
+          <h2 class="hr-h ob-group-h"><span class="ob-dot ob-role-manager" aria-hidden="true"></span>Manager <anvil-component type="Label" name="c_manager" prop:role='["hi-inline", "fine-print"]'></anvil-component></h2>
+          <anvil-component type="RepeatingPanel" name="p_manager" prop:item_template="HR_Platform.Items.TaskRow" prop:role='["ob-tasks"]'></anvil-component>
+        </section>
+        <section class="ob-group" anvil:name="g_employee">
+          <h2 class="hr-h ob-group-h"><span class="ob-dot ob-role-employee" aria-hidden="true"></span><anvil-component type="Label" name="emp_title" prop:role='["hi-inline"]' prop:text="New hire"></anvil-component> <anvil-component type="Label" name="c_employee" prop:role='["hi-inline", "fine-print"]'></anvil-component></h2>
+          <anvil-component type="RepeatingPanel" name="p_employee" prop:item_template="HR_Platform.Items.TaskRow" prop:role='["ob-tasks"]'></anvil-component>
+        </section>
+        <div class="ui-empty" anvil:name="no_tasks">
+          <i class="ic ic-clipboard"></i>
+          <h3>No tasks on this checklist</h3>
+          <p>Add the first task below, or edit the template in Settings for next time.</p>
+        </div>
+
+        <section class="hr-panel ob-add" anvil:name="add_part">
+          <h2 class="hr-h"><i class="ic ic-plus"></i>Add a task</h2>
+          <div class="ob-add-row">
+            <label class="ui-field ob-grow"><span>Task</span>
+              <anvil-component type="TextBox" name="task_box" prop:placeholder="Order a laptop"></anvil-component>
+            </label>
+            <label class="ui-field"><span>Who does it</span>
+              <anvil-component type="DropDown" name="role_box"></anvil-component>
+            </label>
+            <label class="ui-field"><span>Due</span>
+              <anvil-component type="TextBox" name="due_box"></anvil-component>
+            </label>
+            <anvil-component type="Button" name="add_button" prop:text="Add task" prop:role='["btn", "btn-primary", "ic-plus"]'></anvil-component>
+          </div>
+        </section>
+      </div>
+
+      <div class="ui-empty" anvil:name="missing_part">
+        <i class="ic ic-clipboard"></i>
+        <h1 class="hi-missing-h">This checklist isn't available</h1>
+        <anvil-component type="Label" name="missing_text"></anvil-component>
+        <p><a href="#onboarding">Back to Onboarding</a></p>
+      </div>
+    </div>
+  </anvil-block>
+</anvil-form>

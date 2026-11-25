@@ -1,0 +1,22 @@
+<div class="hr-wrap">
+<div class="to-row" anvil:name="row">
+  <div class="to-row-av" anvil:name="av_box">
+    <anvil-component type="HR_Platform.Components.Avatar" name="av" bind:initials="self.item.get('initials', '?')" bind:tone="self.item.get('tone', 0)" prop:size="sm"></anvil-component>
+  </div>
+  <div class="to-row-main">
+    <div class="to-row-top">
+      <a class="to-row-person" anvil:name="person_link" href="#people"><anvil-component type="Label" name="person" prop:role='["strong", "hr-name"]' bind:text="self.item.get('person', '')"></anvil-component></a>
+      <span class="to-row-type" anvil:name="type_box"><span class="hr-lv-dot" anvil:name="dot"></span><anvil-component type="Label" name="type_label" bind:text="self.item.get('type', '')"></anvil-component></span>
+      <anvil-component type="Label" name="status" prop:role='["badge"]'></anvil-component>
+    </div>
+    <anvil-component type="Label" name="when" prop:role='["to-row-when"]'></anvil-component>
+    <anvil-component type="Label" name="note" prop:role='["hr-sub", "to-row-note"]' prop:visible="false"></anvil-component>
+    <anvil-component type="Label" name="decision" prop:role='["fine-print", "to-row-decision"]' prop:visible="false"></anvil-component>
+  </div>
+  <div class="to-row-actions" anvil:name="actions">
+    <anvil-component type="Button" name="approve_button" prop:text="Approve" prop:role='["btn", "btn-sm", "btn-primary", "ic-check", "to-approve"]' prop:visible="false"></anvil-component>
+    <anvil-component type="Button" name="decline_button" prop:text="Decline" prop:role='["btn", "btn-sm", "btn-ghost", "ic-x", "to-decline"]' prop:visible="false"></anvil-component>
+    <anvil-component type="Button" name="cancel_button" prop:text="Cancel request" prop:role='["btn", "btn-sm", "btn-ghost", "to-cancel"]' prop:visible="false"></anvil-component>
+  </div>
+</div>
+</div>

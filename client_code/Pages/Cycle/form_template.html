@@ -1,0 +1,54 @@
+<anvil-form layout="HR_Platform.Layouts.Shell">
+  <anvil-block slot="content">
+    <div class="ui-wrap pfx-cycle-page">
+      <a class="pfx-back" href="#performance/reviews"><i class="ic ic-back"></i>Performance</a>
+
+      <div anvil:name="denied_box" class="ui-empty">
+        <i class="ic ic-lock"></i>
+        <anvil-component type="Label" name="denied_h" prop:role='["pfx-missing-h"]' prop:text="Review cycles are for HR"></anvil-component>
+        <anvil-component type="Label" name="denied_text" prop:text="HR follows every review cycle here. Your own reviews are on the Performance page."></anvil-component>
+        <p><a href="#performance/reviews">Go to your reviews</a></p>
+      </div>
+
+      <div anvil:name="main_box">
+        <div class="ui-page-head">
+          <div>
+            <anvil-component type="Label" name="title_label" prop:role='["page-title"]'></anvil-component>
+            <anvil-component type="Label" name="meta" prop:role='["hr-sub"]'></anvil-component>
+          </div>
+          <div class="ui-row">
+            <anvil-component type="Label" name="status" prop:role='["badge"]'></anvil-component>
+            <anvil-component type="Button" name="close_button" prop:text="Close cycle" prop:role='["btn", "btn-danger", "ic-lock"]'></anvil-component>
+          </div>
+        </div>
+
+        <div class="hr-stats pfx-cycle-stats">
+          <div class="hr-stat"><anvil-component type="Label" name="st_done" prop:role='["hr-big"]'></anvil-component><span>reviews submitted</span></div>
+          <div class="hr-stat"><anvil-component type="Label" name="st_left" prop:role='["hr-big"]'></anvil-component><span>still to write</span></div>
+          <div class="hr-stat"><anvil-component type="Label" name="st_people" prop:role='["hr-big"]'></anvil-component><span>people in the cycle</span></div>
+          <div class="hr-stat"><anvil-component type="Label" name="st_avg" prop:role='["hr-big"]'></anvil-component><span>average rating</span></div>
+        </div>
+
+        <div class="hr-cols pfx-cycle-cols">
+          <section class="hr-panel">
+            <h2 class="hr-h"><i class="ic ic-check"></i>Progress</h2>
+            <div class="hr-bar pfx-big-bar" anvil:name="bar_box" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span anvil:name="bar"></span></div>
+            <anvil-component type="Label" name="progress_text" prop:role='["fine-print"]'></anvil-component>
+          </section>
+          <section class="hr-panel pfx-dist">
+            <h2 class="hr-h"><i class="ic ic-chart"></i>Manager ratings</h2>
+            <anvil-component type="HR_Platform.Components.Chart" name="dist_chart" prop:kind="bar"></anvil-component>
+            <anvil-component type="Label" name="dist_text" prop:role='["fine-print"]'></anvil-component>
+          </section>
+        </div>
+
+        <section class="hr-panel hr-section pfx-people">
+          <h2 class="hr-h"><i class="ic ic-users"></i>People</h2>
+          <div class="pfx-crow pfx-crow-head" aria-hidden="true"><b>Person</b><b>Self-review</b><b>Manager review</b><b>Rating</b></div>
+          <anvil-component type="RepeatingPanel" name="rows_panel" prop:item_template="HR_Platform.Items.CycleRow" prop:role='["pfx-crows"]'></anvil-component>
+          <div class="hr-empty-line" anvil:name="no_rows">Nobody is in this cycle.</div>
+        </section>
+      </div>
+    </div>
+  </anvil-block>
+</anvil-form>

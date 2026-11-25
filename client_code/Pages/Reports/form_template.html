@@ -1,0 +1,110 @@
+<anvil-form layout="HR_Platform.Layouts.Shell">
+  <anvil-block slot="content">
+    <div class="ui-wrap rp-page">
+      <div class="ui-page-head">
+        <div>
+          <h1>Reports</h1>
+          <p class="hr-lede">How the company is changing: people, hiring, time off and how the team feels.</p>
+        </div>
+      </div>
+
+      <div anvil:name="denied_box" class="ui-empty">
+        <i class="ic ic-lock"></i>
+        <h2>Reports are for HR</h2>
+        <p>Company-wide numbers like headcount, turnover and pay exports are only shown to HR admins. Ask your HR team if you need a number.</p>
+      </div>
+
+      <div anvil:name="main_box">
+        <div class="hr-stats rp-stats">
+          <div class="hr-stat"><anvil-component type="Label" name="st_head" prop:role='["hr-big"]'></anvil-component><span>people (headcount)</span></div>
+          <div class="hr-stat"><anvil-component type="Label" name="st_starting" prop:role='["hr-big"]'></anvil-component><span>starting soon</span></div>
+          <div class="hr-stat"><anvil-component type="Label" name="st_leave" prop:role='["hr-big"]'></anvil-component><span>on leave</span></div>
+          <div class="hr-stat"><anvil-component type="Label" name="st_turnover" prop:role='["hr-big"]'></anvil-component><span>turnover, last 12 months</span></div>
+          <div class="hr-stat"><anvil-component type="Label" name="st_hires" prop:role='["hr-big"]'></anvil-component><span>new hires, last 12 months</span></div>
+          <div class="hr-stat"><anvil-component type="Label" name="st_regretted" prop:role='["hr-big"]'></anvil-component><span>regretted leavers</span></div>
+        </div>
+
+        <div class="rp-grid">
+          <section class="hr-panel rp-card">
+            <h2 class="hr-h"><i class="ic ic-users"></i>Headcount trend</h2>
+            <anvil-component type="HR_Platform.Components.Chart" name="trend_chart" prop:kind="line"></anvil-component>
+            <anvil-component type="Label" name="trend_text" prop:role='["rp-take"]'></anvil-component>
+          </section>
+          <section class="hr-panel rp-card">
+            <h2 class="hr-h"><i class="ic ic-refresh"></i>Hires and leavers per month</h2>
+            <div class="rp-pair">
+              <div class="rp-hires"><span class="rp-mini-h">Hires</span>
+                <anvil-component type="HR_Platform.Components.Chart" name="hires_chart" prop:kind="bar" prop:single="true"></anvil-component>
+              </div>
+              <div class="rp-leavers"><span class="rp-mini-h">Leavers</span>
+                <anvil-component type="HR_Platform.Components.Chart" name="exits_chart" prop:kind="bar" prop:single="true"></anvil-component>
+              </div>
+            </div>
+            <anvil-component type="Label" name="flow_text" prop:role='["rp-take"]'></anvil-component>
+          </section>
+          <section class="hr-panel rp-card">
+            <h2 class="hr-h"><i class="ic ic-grid"></i>By department</h2>
+            <anvil-component type="HR_Platform.Components.Chart" name="dept_chart" prop:kind="hbar"></anvil-component>
+            <anvil-component type="Label" name="dept_text" prop:role='["rp-take"]'></anvil-component>
+          </section>
+          <section class="hr-panel rp-card">
+            <h2 class="hr-h"><i class="ic ic-pin"></i>By location</h2>
+            <anvil-component type="HR_Platform.Components.Chart" name="loc_chart" prop:kind="hbar"></anvil-component>
+            <anvil-component type="Label" name="loc_text" prop:role='["rp-take"]'></anvil-component>
+          </section>
+          <section class="hr-panel rp-card">
+            <h2 class="hr-h"><i class="ic ic-briefcase"></i>Employment type</h2>
+            <anvil-component type="HR_Platform.Components.Chart" name="type_chart" prop:kind="hbar"></anvil-component>
+            <anvil-component type="Label" name="type_text" prop:role='["rp-take"]'></anvil-component>
+          </section>
+          <section class="hr-panel rp-card">
+            <h2 class="hr-h"><i class="ic ic-clock"></i>Tenure</h2>
+            <anvil-component type="HR_Platform.Components.Chart" name="tenure_chart" prop:kind="bar"></anvil-component>
+            <anvil-component type="Label" name="tenure_text" prop:role='["rp-take"]'></anvil-component>
+          </section>
+          <section class="hr-panel rp-card">
+            <h2 class="hr-h"><i class="ic ic-calendar"></i>Time off taken this year</h2>
+            <anvil-component type="HR_Platform.Components.Chart" name="timeoff_chart" prop:kind="hbar" prop:unit=" d"></anvil-component>
+            <anvil-component type="Label" name="timeoff_text" prop:role='["rp-take"]'></anvil-component>
+          </section>
+          <section class="hr-panel rp-card">
+            <h2 class="hr-h"><i class="ic ic-filter"></i>Hiring funnel</h2>
+            <anvil-component type="HR_Platform.Components.Chart" name="funnel_chart" prop:kind="hbar"></anvil-component>
+            <anvil-component type="Label" name="funnel_text" prop:role='["rp-take"]'></anvil-component>
+          </section>
+          <section class="hr-panel rp-card">
+            <h2 class="hr-h"><i class="ic ic-heart"></i>eNPS over time</h2>
+            <anvil-component type="HR_Platform.Components.Chart" name="enps_chart" prop:kind="line"></anvil-component>
+            <anvil-component type="Label" name="enps_text" prop:role='["rp-take"]'></anvil-component>
+          </section>
+          <section class="hr-panel rp-card rp-exports">
+            <h2 class="hr-h"><i class="ic ic-download"></i>Exports</h2>
+            <div class="rp-export">
+              <h3 class="rp-ex-h">People list (CSV)</h3>
+              <p class="rp-ex-p">Everyone, with job, team, manager, status and dates. Opens in any spreadsheet.</p>
+              <div class="rp-ex-row">
+                <anvil-component type="CheckBox" name="pay_box" prop:text="Include pay"></anvil-component>
+                <anvil-component type="Button" name="people_button" prop:text="Download people list" prop:role='["btn", "ic-download"]'></anvil-component>
+              </div>
+            </div>
+            <div class="rp-export">
+              <h3 class="rp-ex-h">Payroll export</h3>
+              <p class="rp-ex-p">One row per person employed in the period: pay, changes, paid and unpaid days off.</p>
+              <div class="hr-fields2">
+                <label class="ui-field"><span>Period start</span>
+                  <anvil-component type="TextBox" name="start_box"></anvil-component>
+                </label>
+                <label class="ui-field"><span>Period end</span>
+                  <anvil-component type="TextBox" name="end_box"></anvil-component>
+                </label>
+              </div>
+              <div class="rp-ex-row">
+                <anvil-component type="Button" name="payroll_button" prop:text="Download payroll export" prop:role='["btn", "ic-download"]'></anvil-component>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </anvil-block>
+</anvil-form>

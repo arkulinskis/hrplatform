@@ -1,0 +1,9 @@
+<div class="hr-bal">
+  <div class="hr-bal-top">
+    <span class="hr-lv-dot" anvil:name="dot"></span>
+    <anvil-component type="Label" name="name" prop:role='["strong"]' bind:text="self.item['name']"></anvil-component>
+  </div>
+  <div class="hr-bal-num"><anvil-component type="Label" name="left" prop:role='["hr-big"]'></anvil-component><anvil-component type="Label" name="unit" prop:role='["hr-sub"]'></anvil-component></div>
+  <div class="hr-bar" anvil:name="bar_box" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span anvil:name="bar_used"></span><span anvil:name="bar_pending" class="pending"></span></div>
+  <anvil-component type="Label" name="meta" prop:role='["fine-print"]'></anvil-component>
+</div>

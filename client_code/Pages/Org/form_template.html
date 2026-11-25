@@ -1,0 +1,22 @@
+<anvil-form layout="HR_Platform.Layouts.Shell">
+  <anvil-block slot="content">
+    <div class="ui-wrap hr-org-page">
+      <div class="ui-page-head">
+        <div><h1>Org chart</h1><anvil-component type="Label" name="sub" prop:role='["hr-sub"]'></anvil-component></div>
+        <div class="ui-row">
+          <anvil-component type="DropDown" name="find_box"></anvil-component>
+          <a class="ui-btn" href="#people"><i class="ic ic-users"></i>Directory</a>
+        </div>
+      </div>
+      <div class="hr-org-legend">
+        <span><i class="hr-legend-dot onboarding"></i>Starting soon</span>
+        <span><i class="hr-legend-dot leave"></i>On leave</span>
+        <span><i class="hr-legend-box"></i>Open role</span>
+        <span class="muted">Select anyone to open their profile.</span>
+      </div>
+      <div class="hr-panel hr-org-panel">
+        <anvil-component type="HR_Platform.Components.OrgChart" name="chart"></anvil-component>
+      </div>
+    </div>
+  </anvil-block>
+</anvil-form>

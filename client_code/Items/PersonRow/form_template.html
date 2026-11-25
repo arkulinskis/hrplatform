@@ -1,0 +1,10 @@
+<div class="hr-wrap">
+<a class="hr-prow" anvil:name="link" href="#people">
+  <anvil-component type="HR_Platform.Components.Avatar" name="av" bind:initials="self.item['initials']" bind:tone="self.item.get('tone', 0)" prop:size="sm"></anvil-component>
+  <span class="hr-prow-txt">
+    <anvil-component type="Label" name="name" prop:role='["strong", "hr-name"]' bind:text="self.item['name']"></anvil-component>
+    <anvil-component type="Label" name="sub" prop:role='["hr-sub"]' bind:text="self.item.get('sub', '')"></anvil-component>
+  </span>
+  <anvil-component type="Label" name="tag_label" prop:role='["badge"]' prop:visible="false"></anvil-component>
+</a>
+</div>

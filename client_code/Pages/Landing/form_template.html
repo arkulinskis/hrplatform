@@ -1,0 +1,107 @@
+<anvil-form layout="HR_Platform.Layouts.Shell">
+  <anvil-block slot="content">
+    <div class="page-landing">
+      <section class="lp-hero hr-hero">
+        <div class="ui-wrap">
+          <div class="hr-hero-copy">
+            <h1>All your people, <em>one calm place.</em></h1>
+            <p class="lp-lead">Records, time off, hiring, onboarding and reviews in one tidy workspace for teams of 5 to 500. Your data stays yours: export everything, any time.</p>
+            <div class="lp-cta" anvil:name="guest_cta">
+              <a class="ui-btn primary lg" href="#auth/signup">Start free with a sample company <i class="ic ic-arrow"></i></a>
+              <a class="ui-btn lg" href="#careers/larkspur">See a careers page</a>
+            </div>
+            <div class="lp-cta" anvil:name="member_cta">
+              <a class="ui-btn primary lg" href="#home">Open your workspace <i class="ic ic-arrow"></i></a>
+            </div>
+            <div class="lp-proof">
+              <span><i class="ic ic-check"></i>Set up in five minutes</span>
+              <span><i class="ic ic-check"></i>Works on your phone</span>
+              <span><i class="ic ic-check"></i>One-click full export</span>
+            </div>
+          </div>
+          <figure class="hr-hero-chart" aria-label="A sample company's org chart">
+            <div class="hr-hero-bar"><span class="hr-hero-dot"></span><b>Larkspur Studio</b><span class="muted">9 people · 1 open role</span></div>
+            <anvil-component type="HR_Platform.Components.OrgChart" name="chart" prop:animate="true"></anvil-component>
+            <figcaption class="fine-print">A sample company. Yours draws itself from who reports to whom.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="lp-section" id="how">
+        <div class="ui-wrap">
+          <div class="lp-head"><h2>Running in an afternoon, not a quarter</h2><p>Most HR tools take months to set up. This one starts with a sample company you can explore, then gets out of your way.</p></div>
+          <div class="lp-steps">
+            <div class="ui-card lp-step"><h3>Create your workspace</h3><p class="muted">Name your company. A sample team of 26 people fills every page so you can try everything before your real data goes in.</p></div>
+            <div class="ui-card lp-step"><h3>Bring your people</h3><p class="muted">Paste your spreadsheet: names, titles, teams and managers are matched by column name, checked, then added in one go.</p></div>
+            <div class="ui-card lp-step"><h3>Invite everyone</h3><p class="muted">Each person gets a one-time link. They see their own record, ask for time off and sign policies from their phone.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="lp-section">
+        <div class="ui-wrap">
+          <div class="lp-head"><h2>Everything HR does, in one record</h2><p>One profile per person, used by every part of the app. No copying between tools.</p></div>
+          <div class="lp-feats">
+            <div class="lp-feature"><i class="ic ic-users"></i><h3>People and profiles</h3><p>Job, pay, personal details, documents and equipment, with a dated history of every change.</p></div>
+            <div class="lp-feature"><i class="ic ic-org"></i><h3>A living org chart</h3><p>Drawn from reporting lines, with open roles shown where they will sit.</p></div>
+            <div class="lp-feature"><i class="ic ic-calendar"></i><h3>Time off that adds up</h3><p>Allowances, working-day counts that skip weekends and holidays, one-tap approvals and a who's-out calendar.</p></div>
+            <div class="lp-feature"><i class="ic ic-briefcase"></i><h3>Hiring</h3><p>A public careers page, a pipeline board, ratings and notes. Hire turns a candidate into an employee with onboarding ready.</p></div>
+            <div class="lp-feature"><i class="ic ic-clipboard"></i><h3>Onboarding and offboarding</h3><p>Checklists from your templates, each task owned by HR, IT, the manager or the new hire, with due dates.</p></div>
+            <div class="lp-feature"><i class="ic ic-target"></i><h3>Reviews, goals and kudos</h3><p>Self and manager reviews in cycles, goals with progress, kudos tied to your company values.</p></div>
+            <div class="lp-feature"><i class="ic ic-smile"></i><h3>An honest pulse</h3><p>Anonymous eNPS: answers are stored without names and only shown once three people reply.</p></div>
+            <div class="lp-feature"><i class="ic ic-book"></i><h3>Policies people actually read</h3><p>Your handbook in plain pages, with acknowledgements tracked. Change a policy and everyone is asked again.</p></div>
+            <div class="lp-feature"><i class="ic ic-chart"></i><h3>Reports and payroll export</h3><p>Headcount, turnover, tenure, time off and the hiring funnel; a payroll file for any period, ready for your provider.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="lp-section hr-fixed">
+        <div class="ui-wrap">
+          <div class="lp-head"><h2>Built from what people dislike about HR software</h2><p>We read the reviews of the big tools. These are the complaints that came up again and again, and what we did about each.</p></div>
+          <div class="hr-fix-list">
+            <div class="hr-fix"><p class="hr-fix-q">"Managers can see salaries they shouldn't."</p><p class="hr-fix-a">Pay is visible only to the person, the managers above them and HR. Personal details only to the person and HR. HR can preview the app as anyone to check.</p></div>
+            <div class="hr-fix"><p class="hr-fix-q">"Too many emails, I can't find what needs me."</p><p class="hr-fix-a">One "Needs you" list on your home page: approvals, reviews, onboarding tasks, policies and the pulse, in one place.</p></div>
+            <div class="hr-fix"><p class="hr-fix-q">"It took months to set up."</p><p class="hr-fix-a">A sample company to learn on, a spreadsheet import that checks your data first, and sensible defaults for leave, holidays and checklists.</p></div>
+            <div class="hr-fix"><p class="hr-fix-q">"The reports are rigid and we can't get our data out."</p><p class="hr-fix-a">Ready-made charts, CSV exports of people and payroll, and a full export of your whole company as one file.</p></div>
+            <div class="hr-fix"><p class="hr-fix-q">"The phone app is missing half the features."</p><p class="hr-fix-a">It's the same app on every screen, laid out for a phone first. Every page works at a phone's width.</p></div>
+            <div class="hr-fix"><p class="hr-fix-q">"Nobody can tell who changed what."</p><p class="hr-fix-a">Every change to a record is logged with who made it, when, and the date it takes effect.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="lp-section">
+        <div class="ui-wrap">
+          <div class="lp-head"><h2>Made for everyone in the company</h2></div>
+          <div class="hr-audience">
+            <div><h3>HR</h3><p class="muted">Keep one clean record per person, run onboarding, approvals, reviews and policies, and answer "how many people do we have?" in a second.</p></div>
+            <div><h3>Managers</h3><p class="muted">Approve time off in one tap, see who's out, write reviews and keep your team's goals moving, without asking HR for every number.</p></div>
+            <div><h3>Everyone else</h3><p class="muted">Find colleagues, see your balance, ask for time off, give kudos and sign the handbook from your phone.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="lp-section">
+        <div class="ui-wrap">
+          <div class="lp-head"><h2>Questions</h2></div>
+          <div class="lp-faq">
+            <details><summary>Is it free?</summary><p>Yes, while we're in early access: every feature, no limits on people. When paid plans come, the price will be on this page, one simple per-person price with every module included.</p></details>
+            <details><summary>Does it run payroll?</summary><p>No. Payroll is the most complained-about part of HR suites, so we don't pretend to do it. You get a clean payroll export for any period (pay, changes, paid and unpaid days off) to hand to your payroll provider or accountant.</p></details>
+            <details><summary>Who can see my salary or personal details?</summary><p>Your pay: you, the managers above you and HR. Your personal details (address, phone, emergency contact, documents): you and HR. Colleagues see your name, job, team, work email and birthday (day and month only).</p></details>
+            <details><summary>Are the pulse surveys really anonymous?</summary><p>Answers are stored without any link to who gave them; the app only records that you answered so it doesn't ask twice. Results stay hidden until at least three people answer.</p></details>
+            <details><summary>Can I get my data out?</summary><p>Any time. Settings has a one-click export of your whole company, and Reports has CSV files of people and payroll.</p></details>
+            <details><summary>Does it work on my phone?</summary><p>Yes. It works in any modern browser, and you can add it to your home screen.</p></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="lp-section">
+        <div class="ui-wrap">
+          <div class="lp-band">
+            <div><h2>See it with a real-looking company</h2><p>Sign up and your workspace starts with 26 sample people, open roles, reviews and requests to approve.</p></div>
+            <a class="ui-btn lg" href="#auth/signup" anvil:name="band_link">Start free</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </anvil-block>
+</anvil-form>

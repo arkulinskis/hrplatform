@@ -1,0 +1,26 @@
+---
+custom_component: true
+properties:
+  - name: data
+    type: object
+    description: "A list of {label, value}"
+    default_binding_prop: true
+  - name: kind
+    type: string
+    default_value: "bar"
+    description: bar, hbar or line
+  - name: unit
+    type: string
+    default_value: ""
+    description: Text after each value (e.g. %)
+  - name: single
+    type: boolean
+    default_value: false
+    description: One colour for every bar
+toolbox_item:
+  title: Chart
+  group: HR Platform
+help_text: |
+  A small SVG chart (theme/assets/hr-engines.js HR.chart), drawn at the container's real width.
+---
+<div class="hr-chart-host-wrap"><div class="hr-chart-host" anvil:dom-node="host"></div></div>

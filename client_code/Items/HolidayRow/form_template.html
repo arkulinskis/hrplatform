@@ -1,0 +1,13 @@
+<div class="hr-wrap">
+<div class="to-hol" anvil:name="row">
+  <div class="to-hol-date">
+    <anvil-component type="Label" name="day_num" prop:role='["to-hol-num"]'></anvil-component>
+    <anvil-component type="Label" name="month" prop:role='["fine-print"]'></anvil-component>
+  </div>
+  <div class="to-hol-main">
+    <anvil-component type="Label" name="name" prop:role='["strong", "hr-name"]' bind:text="self.item.get('name', '')"></anvil-component>
+    <anvil-component type="Label" name="meta" prop:role='["hr-sub"]'></anvil-component>
+  </div>
+  <anvil-component type="Button" name="delete_button" prop:text="Delete" prop:role='["btn", "btn-sm", "btn-ghost", "btn-icon", "ic-trash", "sr-text", "to-hol-del"]' prop:visible="false"></anvil-component>
+</div>
+</div>

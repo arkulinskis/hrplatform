@@ -1,0 +1,165 @@
+<anvil-form layout="HR_Platform.Layouts.Shell">
+  <anvil-block slot="content">
+    <div class="ui-wrap st-page">
+      <div class="ui-page-head">
+        <div>
+          <h1>Settings</h1>
+          <p class="hr-lede">How your company is set up: the lists people pick from, time off, checklists and your data.</p>
+        </div>
+      </div>
+
+      <div class="ui-empty st-no-access" anvil:name="no_access">
+        <i class="ic ic-lock"></i>
+        <h2>Only HR admins can change company settings</h2>
+        <p>If something here needs changing, ask someone in HR. <a href="#home">Back to home</a></p>
+      </div>
+
+      <div anvil:name="admin_part">
+        <nav class="ui-tabs st-tabs" aria-label="Settings sections">
+          <a href="#settings/company" anvil:name="tab_company"><i class="ic ic-briefcase"></i>Company</a>
+          <a href="#settings/timeoff" anvil:name="tab_timeoff"><i class="ic ic-calendar"></i>Time off</a>
+          <a href="#settings/checklists" anvil:name="tab_checklists"><i class="ic ic-clipboard"></i>Checklists</a>
+          <a href="#settings/data" anvil:name="tab_data"><i class="ic ic-database"></i>People data</a>
+          <a href="#settings/audit" anvil:name="tab_audit"><i class="ic ic-clock"></i>Audit log</a>
+        </nav>
+
+        <!-- company -->
+        <div anvil:name="company_part">
+          <section class="hr-panel st-company">
+            <h2 class="hr-h">Company</h2>
+            <p class="hr-lede">The name shows in the header and on your careers page. The currency is the default for pay.</p>
+            <div class="st-company-fields">
+              <label class="ui-field"><span>Company name</span>
+                <anvil-component type="TextBox" name="name_box" prop:role='["st-name"]'></anvil-component>
+              </label>
+              <label class="ui-field"><span>Country</span>
+                <anvil-component type="TextBox" name="country_box"></anvil-component>
+              </label>
+              <label class="ui-field"><span>Currency</span>
+                <anvil-component type="DropDown" name="currency_drop"></anvil-component>
+              </label>
+            </div>
+            <div class="st-actions">
+              <anvil-component type="Button" name="save_company_button" prop:text="Save company" prop:role='["btn", "btn-primary", "ic-check", "st-save-company"]'></anvil-component>
+            </div>
+          </section>
+
+          <section class="hr-panel st-list st-list-departments">
+            <h2 class="hr-h">Departments</h2>
+            <p class="hr-lede">The choices for everyone's department, on profiles, in the directory and in reports.</p>
+            <anvil-component type="RepeatingPanel" name="dept_panel" prop:item_template="HR_Platform.Items.ChipEdit" prop:role='["st-chips"]'></anvil-component>
+            <div class="st-add">
+              <anvil-component type="TextBox" name="dept_box" prop:placeholder="New department"></anvil-component>
+              <anvil-component type="Button" name="dept_add" prop:text="Add" prop:role='["btn", "ic-plus", "st-add-btn"]'></anvil-component>
+            </div>
+          </section>
+
+          <section class="hr-panel st-list st-list-locations">
+            <h2 class="hr-h">Locations</h2>
+            <p class="hr-lede">Offices and "Remote". Removing one doesn't change anyone's profile.</p>
+            <anvil-component type="RepeatingPanel" name="loc_panel" prop:item_template="HR_Platform.Items.ChipEdit" prop:role='["st-chips"]'></anvil-component>
+            <div class="st-add">
+              <anvil-component type="TextBox" name="loc_box" prop:placeholder="New location"></anvil-component>
+              <anvil-component type="Button" name="loc_add" prop:text="Add" prop:role='["btn", "ic-plus", "st-add-btn"]'></anvil-component>
+            </div>
+          </section>
+
+          <section class="hr-panel st-list st-list-values">
+            <h2 class="hr-h">Company values</h2>
+            <p class="hr-lede">People tag kudos with a value, so you can see which values show up in everyday work.</p>
+            <anvil-component type="RepeatingPanel" name="val_panel" prop:item_template="HR_Platform.Items.ChipEdit" prop:role='["st-chips"]'></anvil-component>
+            <div class="st-add">
+              <anvil-component type="TextBox" name="val_box" prop:placeholder="New value"></anvil-component>
+              <anvil-component type="Button" name="val_add" prop:text="Add" prop:role='["btn", "ic-plus", "st-add-btn"]'></anvil-component>
+            </div>
+          </section>
+        </div>
+
+        <!-- time off -->
+        <div anvil:name="timeoff_part">
+          <section class="hr-panel">
+            <div class="hr-sec-head">
+              <div>
+                <h2 class="hr-h">Types of time off</h2>
+                <p class="hr-lede">Each type has a yearly allowance in working days. An allowance of 0 means no limit (for example unpaid leave): people can ask for any amount and it's still tracked.</p>
+              </div>
+              <anvil-component type="Button" name="add_type_button" prop:text="Add a type" prop:role='["btn", "ic-plus", "st-add-type"]'></anvil-component>
+            </div>
+            <anvil-component type="RepeatingPanel" name="types_panel" prop:item_template="HR_Platform.Items.LeaveTypeRow" prop:role='["st-types"]'></anvil-component>
+            <div class="hr-empty-line" anvil:name="no_types">No types yet. Add Vacation and Sick days to start.</div>
+            <p class="fine-print st-note">A type that people have already used can't be deleted (it would rewrite their history); rename it instead. Public holidays are on <a href="#timeoff/holidays">Time off, Holidays</a>.</p>
+          </section>
+        </div>
+
+        <!-- checklists -->
+        <div anvil:name="checklists_part">
+          <p class="hr-lede st-cl-lede">New checklists are copied from these templates when someone joins or leaves. Day 0 = the start date (onboarding) or the last day (offboarding); a negative day is before it. Checklists already started don't change.</p>
+          <section class="hr-panel st-cl st-cl-onboarding">
+            <h2 class="hr-h"><i class="ic ic-plane"></i>Onboarding</h2>
+            <anvil-component type="RepeatingPanel" name="onb_panel" prop:item_template="HR_Platform.Items.TemplateTaskRow" prop:role='["st-tasks"]'></anvil-component>
+            <div class="hr-empty-line" anvil:name="no_onb">No onboarding tasks. Add the first one.</div>
+            <div class="st-actions">
+              <anvil-component type="Button" name="onb_add" prop:text="Add a task" prop:role='["btn", "btn-ghost", "ic-plus", "st-task-add"]'></anvil-component>
+              <anvil-component type="Button" name="onb_save" prop:text="Save onboarding" prop:role='["btn", "btn-primary", "ic-check", "st-task-save"]'></anvil-component>
+            </div>
+          </section>
+          <section class="hr-panel st-cl st-cl-offboarding">
+            <h2 class="hr-h"><i class="ic ic-back"></i>Offboarding</h2>
+            <anvil-component type="RepeatingPanel" name="off_panel" prop:item_template="HR_Platform.Items.TemplateTaskRow" prop:role='["st-tasks"]'></anvil-component>
+            <div class="hr-empty-line" anvil:name="no_off">No offboarding tasks. Add the first one.</div>
+            <div class="st-actions">
+              <anvil-component type="Button" name="off_add" prop:text="Add a task" prop:role='["btn", "btn-ghost", "ic-plus", "st-task-add"]'></anvil-component>
+              <anvil-component type="Button" name="off_save" prop:text="Save offboarding" prop:role='["btn", "btn-primary", "ic-check", "st-task-save"]'></anvil-component>
+            </div>
+          </section>
+        </div>
+
+        <!-- people data -->
+        <div anvil:name="data_part">
+          <section class="hr-panel st-data-import">
+            <h2 class="hr-h"><i class="ic ic-upload"></i>Import people</h2>
+            <p class="hr-lede">Add your whole team at once from a spreadsheet. You see a preview first, and rows with problems are skipped.</p>
+            <div class="st-actions">
+              <anvil-component type="Button" name="import_button" prop:text="Import people" prop:role='["btn", "btn-primary", "ic-upload", "st-import"]'></anvil-component>
+              <anvil-component type="Button" name="template_button" prop:text="Download the CSV template" prop:role='["btn", "btn-ghost", "ic-download", "st-template"]'></anvil-component>
+            </div>
+          </section>
+          <section class="hr-panel st-data-export">
+            <h2 class="hr-h"><i class="ic ic-download"></i>Export everything</h2>
+            <p class="hr-lede">One JSON file with every person, change, request, review, checklist and document record your company has. It's yours: no lock-in, take it anywhere.</p>
+            <div class="st-actions">
+              <anvil-component type="Button" name="export_button" prop:text="Export everything" prop:role='["btn", "ic-download", "st-export"]'></anvil-component>
+            </div>
+          </section>
+          <section class="hr-panel st-data-sample" anvil:name="sample_box">
+            <h2 class="hr-h"><i class="ic ic-sparkle"></i>Sample data</h2>
+            <p class="hr-lede">Your workspace still has the sample people and content we added to show how things work. Removing them keeps everything you added yourself.</p>
+            <div class="st-actions">
+              <anvil-component type="Button" name="sample_button" prop:text="Remove sample data" prop:role='["btn", "btn-danger", "ic-trash", "st-remove-sample"]'></anvil-component>
+            </div>
+          </section>
+        </div>
+
+        <!-- audit log -->
+        <div anvil:name="audit_part">
+          <p class="hr-lede st-audit-lede">Every change to anyone's record: what changed, who did it, when it takes effect.</p>
+          <div class="hr-toolbar">
+            <div class="grow">
+              <anvil-component type="TextBox" name="filter_box" prop:placeholder="Filter by person or field" prop:role='["st-filter"]'></anvil-component>
+            </div>
+            <anvil-component type="Label" name="audit_count" prop:role='["fine-print", "st-audit-count"]'></anvil-component>
+          </div>
+          <div class="hr-panel">
+            <anvil-component type="RepeatingPanel" name="audit_panel" prop:item_template="HR_Platform.Items.HistoryRow" prop:role='["st-audit"]'></anvil-component>
+            <div class="ui-empty" anvil:name="no_audit">
+              <i class="ic ic-clock"></i>
+              <h3>No changes yet</h3>
+              <p>Changes to job, pay, status and personal details show up here.</p>
+            </div>
+            <div class="hr-empty-line" anvil:name="no_match">Nothing matches that filter.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </anvil-block>
+</anvil-form>

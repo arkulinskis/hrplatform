@@ -1,0 +1,12 @@
+<article class="hr-ann">
+  <div class="hr-ann-head">
+    <anvil-component type="HR_Platform.Components.Avatar" name="av" bind:initials="self.item['author_initials']" bind:tone="self.item['author_tone']" prop:size="sm"></anvil-component>
+    <div class="hr-ann-who">
+      <anvil-component type="Label" name="title" prop:role='["strong", "hr-ann-title"]' bind:text="self.item['title']"></anvil-component>
+      <anvil-component type="Label" name="meta" prop:role='["fine-print"]'></anvil-component>
+    </div>
+    <anvil-component type="Label" name="pin" prop:text="Pinned" prop:role='["badge", "badge-brand"]' bind:visible="self.item['pinned']"></anvil-component>
+    <anvil-component type="Button" name="delete_button" prop:text="Delete announcement" prop:role='["btn", "btn-icon", "btn-ghost", "ic-trash", "sr-text"]' prop:visible="false"></anvil-component>
+  </div>
+  <anvil-component type="Label" name="body" prop:role='["item-body"]' bind:text="self.item['body']" bind:visible="bool(self.item['body'])"></anvil-component>
+</article>

@@ -1,0 +1,20 @@
+---
+custom_component: true
+properties:
+  - name: data
+    type: object
+    description: "{month: 'YYYY-MM-01', items: [requests], holidays: [{date, name}], today: 'YYYY-MM-DD'}"
+    default_binding_prop: true
+events:
+  - name: pick
+    default_event: true
+    description: A person's chip was clicked
+    parameters:
+      - name: req_id
+toolbox_item:
+  title: Month calendar
+  group: HR Platform
+help_text: |
+  Who's out in a month (theme/assets/hr-engines.js HR.calendar). Weekends and holidays are marked.
+---
+<div class="hr-cal-wrap"><div class="hr-cal-host" anvil:dom-node="host" tabindex="0" aria-label="Who is out this month (scrolls sideways on small screens)"></div></div>

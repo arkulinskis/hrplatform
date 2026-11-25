@@ -1,0 +1,18 @@
+<div class="ob-taskwrap">
+<div class="ob-task" anvil:name="row">
+  <div class="ob-task-tick">
+    <anvil-component type="CheckBox" name="tick" prop:text="" prop:role='["ob-check"]'></anvil-component>
+  </div>
+  <div class="ob-task-txt">
+    <anvil-component type="Label" name="title" prop:role='["ob-task-title"]' bind:text="self.item['title']"></anvil-component>
+    <div class="ob-task-meta">
+      <a class="ob-task-person" anvil:name="person_link" href="#onboarding"><anvil-component type="Label" name="person" prop:role='["strong"]'></anvil-component></a>
+      <anvil-component type="Label" name="role_tag" prop:role='["badge"]'></anvil-component>
+      <anvil-component type="Label" name="due" prop:role='["fine-print"]'></anvil-component>
+      <anvil-component type="Label" name="late" prop:role='["badge", "badge-bad"]' prop:text="Overdue" prop:visible="false"></anvil-component>
+    </div>
+    <anvil-component type="Label" name="done_line" prop:role='["fine-print", "ob-done-line"]' prop:visible="false"></anvil-component>
+  </div>
+  <anvil-component type="Button" name="delete_button" prop:text="Delete task" prop:role='["btn", "btn-sm", "btn-ghost", "btn-icon", "ic-trash", "sr-text"]' prop:visible="false"></anvil-component>
+</div>
+</div>

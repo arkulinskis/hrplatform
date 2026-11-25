@@ -1,0 +1,100 @@
+<anvil-form layout="HR_Platform.Layouts.Shell">
+  <anvil-block slot="content">
+    <div class="ui-wrap to-page">
+      <div class="ui-page-head">
+        <div>
+          <h1>Time off</h1>
+          <p class="hr-lede">Balances, requests, who's out and the company's holidays, counted in working days.</p>
+        </div>
+      </div>
+      <nav class="ui-tabs to-tabs" aria-label="Time off sections">
+        <a href="#timeoff/mine" anvil:name="tab_mine"><i class="ic ic-user"></i>Mine</a>
+        <a href="#timeoff/calendar" anvil:name="tab_calendar"><i class="ic ic-calendar"></i>Calendar</a>
+        <a href="#timeoff/approvals" anvil:name="tab_approvals"><i class="ic ic-check"></i>Approvals<anvil-component type="Label" name="appr_count" prop:role='["to-count"]' prop:visible="false"></anvil-component></a>
+        <a href="#timeoff/holidays" anvil:name="tab_holidays"><i class="ic ic-gift"></i>Holidays</a>
+      </nav>
+
+      <div anvil:name="mine_part">
+        <div class="hr-sec-head to-mine-head">
+          <div>
+            <h2 class="hr-h">Your balances this year</h2>
+            <p class="hr-lede">What's left of each allowance. Waiting requests are already set aside.</p>
+          </div>
+          <anvil-component type="Button" name="request_button" prop:text="Request time off" prop:role='["btn", "btn-primary", "btn-lg", "ic-plane", "to-request"]'></anvil-component>
+        </div>
+        <div class="to-balances">
+          <anvil-component type="RepeatingPanel" name="bal_panel" prop:item_template="HR_Platform.Items.BalanceCard" prop:role='["hr-bal-grid"]'></anvil-component>
+        </div>
+        <div class="hr-empty-line" anvil:name="no_bal">No types of time off are set up yet. HR adds them in Settings, Time off.</div>
+
+        <section class="hr-section">
+          <h2 class="hr-h">Your requests</h2>
+          <p class="hr-lede">Newest first. You can cancel a waiting request, or an approved one that hasn't ended yet.</p>
+          <div class="hr-panel to-list-box">
+            <anvil-component type="RepeatingPanel" name="mine_panel" prop:item_template="HR_Platform.Items.LeaveRow" prop:role='["to-list", "to-mine"]'></anvil-component>
+            <div class="ui-empty to-empty" anvil:name="no_mine">
+              <i class="ic ic-plane"></i>
+              <h3>No requests yet</h3>
+              <p>When you ask for time off, it shows here with its status.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div anvil:name="cal_part">
+        <div class="to-cal-bar">
+          <anvil-component type="Button" name="prev_button" prop:text="Previous month" prop:role='["btn", "btn-icon", "btn-ghost", "ic-back", "sr-text", "to-prev"]'></anvil-component>
+          <anvil-component type="Label" name="month_label" prop:role='["to-month"]'></anvil-component>
+          <anvil-component type="Button" name="next_button" prop:text="Next month" prop:role='["btn", "btn-icon", "btn-ghost", "ic-arrow", "sr-text", "to-next"]'></anvil-component>
+          <anvil-component type="Button" name="this_month_button" prop:text="This month" prop:role='["btn", "btn-sm", "btn-ghost", "to-this-month"]'></anvil-component>
+        </div>
+        <p class="hr-lede to-cal-lede">A filled name is approved time off; a dashed outline is still waiting for approval. Only the person, their managers and HR see the type. Select a name to find the request below.</p>
+        <div class="hr-panel to-cal">
+          <anvil-component type="HR_Platform.Components.MonthCalendar" name="cal"></anvil-component>
+        </div>
+        <section class="hr-section">
+          <h2 class="hr-h">Who's out</h2>
+          <anvil-component type="Label" name="out_count" prop:role='["fine-print", "to-out-count"]'></anvil-component>
+          <div class="hr-panel to-list-box">
+            <anvil-component type="RepeatingPanel" name="out_panel" prop:item_template="HR_Platform.Items.LeaveRow" prop:role='["to-list", "to-out"]'></anvil-component>
+            <div class="hr-empty-line" anvil:name="no_out">Nobody has time off this month.</div>
+          </div>
+        </section>
+      </div>
+
+      <div anvil:name="appr_part">
+        <h2 class="hr-h">Waiting for your answer</h2>
+        <p class="hr-lede">Requests from people who report to you (HR sees everyone's). Check the calendar for overlaps before you approve.</p>
+        <div class="hr-panel to-list-box to-appr-box">
+          <anvil-component type="RepeatingPanel" name="appr_panel" prop:item_template="HR_Platform.Items.LeaveRow" prop:role='["to-list", "to-appr"]'></anvil-component>
+          <div class="ui-empty to-empty" anvil:name="no_appr">
+            <i class="ic ic-check"></i>
+            <h3>Nothing waiting for you</h3>
+            <p>New time-off requests from your team show up here.</p>
+          </div>
+        </div>
+      </div>
+
+      <div anvil:name="hol_part">
+        <h2 class="hr-h">Public holidays</h2>
+        <p class="hr-lede">Days the whole company is off. They never count against anyone's balance.</p>
+        <div class="hr-panel to-hol-add" anvil:name="hol_add">
+          <h3 class="hr-group-title">Add a holiday</h3>
+          <div class="to-hol-form">
+            <label class="ui-field to-hol-name"><span>Name</span>
+              <anvil-component type="TextBox" name="hol_name_box" prop:placeholder="e.g. Canada Day"></anvil-component>
+            </label>
+            <label class="ui-field"><span>Date</span>
+              <anvil-component type="TextBox" name="hol_date_box"></anvil-component>
+            </label>
+            <anvil-component type="Button" name="hol_add_button" prop:text="Add holiday" prop:role='["btn", "btn-primary", "ic-plus", "to-hol-add-btn"]'></anvil-component>
+          </div>
+        </div>
+        <div class="hr-panel to-list-box">
+          <anvil-component type="RepeatingPanel" name="hol_panel" prop:item_template="HR_Platform.Items.HolidayRow" prop:role='["to-hol-list"]'></anvil-component>
+          <div class="hr-empty-line" anvil:name="no_hol">No holidays added yet.</div>
+        </div>
+      </div>
+    </div>
+  </anvil-block>
+</anvil-form>

@@ -1,0 +1,117 @@
+/* hr-time.css: Time off (to-) and Settings (st-) pages (loaded after hr.css). Calm ledger: hairlines, tokens only. */
+
+/* ---------------------------------------------------------------- time off: tabs + sections */
+.to-tabs .anvil-role-to-count { display: inline-block; margin-left: 6px; font: 600 .75rem/1.4 var(--font-body);
+  background: var(--c-warn-soft); color: var(--c-warn); border-radius: 999px; padding: 1px 7px; }
+.to-mine-head { align-items: flex-end; flex-wrap: wrap; margin-bottom: 16px; }
+.to-mine-head > div { min-width: 0; flex: 1 1 280px; }
+.to-mine-head .hr-h { margin-bottom: 4px; }
+.to-page .hr-h + .hr-lede { margin: -6px 0 14px; }
+.to-list-box { padding-top: 6px; padding-bottom: 6px; }
+.to-list-box .ui-empty { border: 0; padding: 32px 12px; }
+
+/* ---------------------------------------------------------------- request rows (Items.LeaveRow) */
+.anvil-role-to-list > div > * + * { border-top: 1px solid var(--c-line); }
+.to-row { display: flex; gap: 12px; align-items: flex-start; padding: 12px 6px; border-radius: var(--radius-sm); min-width: 0;
+  transition: background-color var(--dur-base) var(--ease-out); }
+.to-row.to-hl { background: var(--c-brand-soft); outline: none; }
+.to-row-av { flex: none; padding-top: 2px; }
+.to-row-main { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.to-row-top { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; min-width: 0; }
+.to-row-person { text-decoration: none; color: inherit !important; min-width: 0; }
+.to-row-person:hover .anvil-role-strong { color: var(--c-brand); }
+.to-row-type { display: inline-flex; align-items: center; gap: 6px; color: var(--c-ink); min-width: 0; }
+.anvil-role-to-row-when { color: var(--c-muted); font-variant-numeric: tabular-nums; }
+.anvil-role-to-row-note, .anvil-role-to-row-decision { overflow-wrap: anywhere; }
+.to-row-actions { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; justify-content: flex-end; flex: none; }
+
+/* ---------------------------------------------------------------- calendar */
+.to-cal-bar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+.anvil-role-to-month { font: 700 1.2rem/1.2 var(--font-display); color: var(--c-ink); min-width: 9.5em; text-align: center; }
+.to-cal-lede { margin-bottom: 14px; }
+.to-cal { padding: 12px; }
+.anvil-role-to-out-count { margin: -6px 0 10px; }
+
+/* ---------------------------------------------------------------- holidays */
+.to-hol-add { margin-bottom: 16px; }
+.to-hol-form { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) auto; gap: 12px; align-items: end; margin-top: 10px; }
+.anvil-role-to-hol-list > div > * + * { border-top: 1px solid var(--c-line); }
+.to-hol { display: flex; gap: 14px; align-items: center; padding: 10px 4px; min-width: 0; }
+.to-hol-date { flex: none; width: 64px; text-align: center; border: 1px solid var(--c-line); border-radius: var(--radius-sm); padding: 6px 4px;
+  background: var(--c-surface-2); }
+.anvil-role-to-hol-num { font: 700 1.3rem/1.1 var(--font-display); color: var(--c-ink); font-variant-numeric: tabular-nums; }
+.to-hol-main { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.to-hol.past .to-hol-date { background: transparent; }
+.to-hol.past .anvil-role-strong { color: var(--c-muted); font-weight: 500; }
+
+/* ---------------------------------------------------------------- dialogs */
+.anvil-role-to-req-count { padding: 10px 12px; border-radius: var(--radius-sm); background: var(--c-surface-2); color: var(--c-muted); }
+.anvil-role-to-req-count.anvil-role-to-good { background: var(--c-good-soft); color: var(--c-good); font-weight: 600; }
+.anvil-role-to-req-count.anvil-role-to-warn { background: var(--c-warn-soft); color: var(--c-warn); font-weight: 600; }
+.anvil-role-to-decide-sum { color: var(--c-ink); margin: 4px 0 6px; }
+
+/* ---------------------------------------------------------------- settings */
+.st-page .hr-panel + .hr-panel { margin-top: 16px; }
+.st-page .hr-h + .hr-lede { margin: -6px 0 14px; }
+.st-no-access a { color: var(--c-brand); font-weight: 600; }
+.st-company-fields { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr) minmax(0, 1fr); gap: 14px; }
+.st-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 16px; }
+.st-note { color: var(--c-muted); font-size: .88rem; margin: 14px 0 0; }
+.st-note a { color: var(--c-brand); }
+.st-cl-lede, .st-audit-lede { margin: 0 0 16px; }
+
+/* chip lists (Items.ChipEdit) */
+.anvil-role-st-chips > div { display: flex; flex-wrap: wrap; gap: 8px; }
+.st-chip { display: inline-flex; align-items: center; gap: 2px; padding: 2px 2px 2px 12px; border: 1px solid var(--c-line); border-radius: 999px;
+  background: var(--c-surface-2); max-width: 100%; min-width: 0; }
+.anvil-role-st-chip-text { color: var(--c-ink); font-size: .95rem; overflow-wrap: anywhere; min-width: 0; }
+.anvil-role-st-chip-x > button { width: 30px; height: 30px; min-height: 30px; padding: 0; border: 0; border-radius: 50%; background: transparent;
+  color: var(--c-muted); display: inline-grid; place-items: center; cursor: pointer; position: relative;
+  transition: background-color var(--dur-fast) ease, color var(--dur-fast) ease; }
+.anvil-role-st-chip-x > button::before { width: 15px; height: 15px; }
+.anvil-role-st-chip-x > button:hover { background: var(--c-bad-soft); color: var(--c-bad); }
+.st-add { display: flex; gap: 8px; margin-top: 14px; max-width: 460px; }
+.st-add > :first-child { flex: 1 1 auto; min-width: 0; }
+
+/* leave types (Items.LeaveTypeRow) */
+.anvil-role-st-types > div > * + * { border-top: 1px solid var(--c-line); }
+.st-type { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) auto minmax(0, 1.3fr) auto; gap: 12px; align-items: end; padding: 12px 0; }
+.st-type.new { background: var(--c-surface-2); border-radius: var(--radius-sm); padding: 12px; }
+.st-type-paid { padding-bottom: 8px; }
+.st-color-pick { display: flex; align-items: center; gap: 8px; }
+.st-color-pick > :last-child { flex: 1 1 auto; min-width: 0; }
+.st-type-actions { display: flex; gap: 6px; align-items: center; padding-bottom: 2px; }
+
+/* checklist templates (Items.TemplateTaskRow) */
+.anvil-role-st-tasks > div > * + * { border-top: 1px solid var(--c-line); }
+.st-task { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1.2fr) minmax(70px, .6fr) auto; gap: 12px; align-items: end; padding: 10px 0; }
+.st-task-x { padding-bottom: 2px; }
+
+/* import dialog (Dialogs.ImportPeople + Items.ImportRow) */
+.st-import-tools { display: flex; gap: 10px; flex-wrap: wrap; }
+.st-import-preview-box { display: grid; gap: 6px; }
+.st-imp-list { max-height: 300px; overflow: auto; position: relative; border: 1px solid var(--c-line); border-radius: var(--radius-sm); margin-top: 6px; }
+.anvil-role-st-imp-rows > div > * + * { border-top: 1px solid var(--c-line); }
+.st-imp { display: flex; gap: 12px; align-items: center; padding: 8px 12px; min-width: 0; }
+.st-imp.bad { background: var(--c-bad-soft); }
+.anvil-role-st-imp-line { width: 52px; flex: none; }
+.st-imp-main { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
+
+/* ---------------------------------------------------------------- phone */
+@media (max-width: 720px) {
+  .st-type { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .st-type-name { grid-column: 1 / -1; }
+  .st-type-actions { justify-content: flex-end; }
+  .st-task { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; }
+  .st-task-title { grid-column: 1 / -1; }
+  .st-company-fields { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 560px) {
+  .to-row { flex-wrap: wrap; }
+  .to-row-main { flex-basis: calc(100% - 44px); }
+  .to-row-actions { flex-basis: 100%; justify-content: flex-start; }
+  .to-mine-head .anvil-role-to-request, .to-mine-head .anvil-role-to-request > button { width: 100%; }
+  .to-hol-form { grid-template-columns: minmax(0, 1fr); }
+  .anvil-role-to-month { min-width: 0; flex: 1 1 auto; }
+  .st-imp { flex-wrap: wrap; }
+}

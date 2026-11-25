@@ -1,0 +1,22 @@
+<div class="hi-jobrow">
+  <a class="hi-job" anvil:name="link" href="#hiring">
+    <span class="hi-job-top">
+      <span class="hi-job-txt">
+        <anvil-component type="Label" name="title" prop:role='["strong", "hi-job-title"]' bind:text="self.item['title']"></anvil-component>
+        <anvil-component type="Label" name="meta" prop:role='["hr-sub"]'></anvil-component>
+      </span>
+      <anvil-component type="Label" name="status" prop:role='["badge"]'></anvil-component>
+    </span>
+    <span class="hi-strip" anvil:name="strip">
+      <span class="hi-strip-cell"><anvil-component type="Label" name="n_applied" prop:role='["hi-strip-n"]'></anvil-component><span>Applied</span></span>
+      <span class="hi-strip-cell"><anvil-component type="Label" name="n_screen" prop:role='["hi-strip-n"]'></anvil-component><span>Screen</span></span>
+      <span class="hi-strip-cell"><anvil-component type="Label" name="n_interview" prop:role='["hi-strip-n"]'></anvil-component><span>Interview</span></span>
+      <span class="hi-strip-cell"><anvil-component type="Label" name="n_offer" prop:role='["hi-strip-n"]'></anvil-component><span>Offer</span></span>
+      <span class="hi-strip-cell"><anvil-component type="Label" name="n_hired" prop:role='["hi-strip-n"]'></anvil-component><span>Hired</span></span>
+    </span>
+    <span class="hi-job-foot">
+      <anvil-component type="Label" name="active" prop:role='["fine-print"]'></anvil-component>
+      <span class="hi-job-go" anvil:name="go_text">Open pipeline <i class="ic ic-chevron"></i></span>
+    </span>
+  </a>
+</div>

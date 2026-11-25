@@ -1,0 +1,37 @@
+<div class="ui hr-dlg hi-jobedit">
+  <anvil-component type="Label" name="heading" prop:role='["dlg-title"]'></anvil-component>
+  <div class="hr-form-stack">
+    <label class="ui-field"><span>Job title</span>
+      <anvil-component type="TextBox" name="title_box" prop:placeholder="Product designer"></anvil-component>
+    </label>
+    <div class="hr-fields2">
+      <label class="ui-field"><span>Department</span>
+        <anvil-component type="DropDown" name="dept_box"></anvil-component>
+      </label>
+      <label class="ui-field"><span>Location</span>
+        <anvil-component type="DropDown" name="loc_box"></anvil-component>
+      </label>
+      <label class="ui-field"><span>Employment type</span>
+        <anvil-component type="DropDown" name="type_box"></anvil-component>
+      </label>
+      <label class="ui-field"><span>Salary range <em>(shown on the careers page)</em></span>
+        <anvil-component type="TextBox" name="salary_box" prop:placeholder="70,000 - 85,000 CAD"></anvil-component>
+      </label>
+      <label class="ui-field"><span>Hiring manager</span>
+        <anvil-component type="DropDown" name="manager_box"></anvil-component>
+      </label>
+      <label class="ui-field"><span>Status</span>
+        <anvil-component type="DropDown" name="status_box"></anvil-component>
+      </label>
+    </div>
+    <label class="ui-field"><span>Description <em>(line breaks are kept)</em></span>
+      <anvil-component type="TextArea" name="desc_box" prop:height="200" prop:placeholder="What the job is, what you'll do, who you'll work with, what we're looking for."></anvil-component>
+    </label>
+    <p class="fine-print">Open jobs show on your public careers page. Drafts and closed jobs don't.</p>
+    <anvil-component type="Label" name="message" prop:role='["msg-error"]' prop:visible="false"></anvil-component>
+  </div>
+  <div class="hr-dlg-actions">
+    <anvil-component type="Button" name="cancel_button" prop:text="Cancel" prop:role='["btn", "btn-ghost"]'></anvil-component>
+    <anvil-component type="Button" name="save_button" prop:text="Save job" prop:role='["btn", "btn-primary", "ic-check"]'></anvil-component>
+  </div>
+</div>

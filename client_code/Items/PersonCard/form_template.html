@@ -1,0 +1,11 @@
+<div class="hr-wrap">
+<a class="hr-pcard" anvil:name="link" href="#people">
+  <anvil-component type="HR_Platform.Components.Avatar" name="av" bind:initials="self.item['initials']" bind:tone="self.item['tone']" prop:size="lg"></anvil-component>
+  <span class="hr-pcard-txt">
+    <anvil-component type="Label" name="name" prop:role='["card-title", "hr-name"]' bind:text="self.item['name']"></anvil-component>
+    <anvil-component type="Label" name="title" prop:role='["hr-sub"]' bind:text="self.item['title'] or 'No title yet'"></anvil-component>
+    <anvil-component type="Label" name="meta" prop:role='["fine-print"]'></anvil-component>
+  </span>
+  <anvil-component type="Label" name="status" prop:role='["badge"]' prop:visible="false"></anvil-component>
+</a>
+</div>

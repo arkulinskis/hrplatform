@@ -1,0 +1,11 @@
+<article class="hr-kudos">
+  <div class="hr-kudos-head">
+    <anvil-component type="HR_Platform.Components.Avatar" name="av" bind:initials="self.item['to_initials']" bind:tone="self.item['to_tone']"></anvil-component>
+    <div class="hr-kudos-who">
+      <anvil-component type="Label" name="who" prop:role='["strong"]'></anvil-component>
+      <anvil-component type="Label" name="meta" prop:role='["fine-print"]'></anvil-component>
+    </div>
+    <anvil-component type="Label" name="value" prop:role='["badge", "badge-brand"]' bind:text="self.item['value']" bind:visible="bool(self.item['value'])"></anvil-component>
+  </div>
+  <anvil-component type="Label" name="message" prop:role='["item-body", "hr-quote"]' bind:text="self.item['message']"></anvil-component>
+</article>

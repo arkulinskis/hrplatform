@@ -1,0 +1,16 @@
+<div class="hr-wrap">
+<div class="st-task">
+  <label class="ui-field st-task-title"><span>Task</span>
+    <anvil-component type="TextBox" name="title_box" prop:placeholder="e.g. Order the laptop"></anvil-component>
+  </label>
+  <label class="ui-field st-task-role"><span>Who does it</span>
+    <anvil-component type="DropDown" name="role_drop"></anvil-component>
+  </label>
+  <label class="ui-field st-task-day"><span>Day</span>
+    <anvil-component type="TextBox" name="day_box"></anvil-component>
+  </label>
+  <div class="st-task-x">
+    <anvil-component type="Button" name="remove_button" prop:text="Remove task" prop:role='["btn", "btn-sm", "btn-ghost", "btn-icon", "ic-trash", "sr-text", "st-task-del"]'></anvil-component>
+  </div>
+</div>
+</div>

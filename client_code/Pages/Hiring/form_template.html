@@ -1,0 +1,59 @@
+<anvil-form layout="HR_Platform.Layouts.Shell">
+  <anvil-block slot="content">
+    <div class="ui-wrap hi-page">
+      <div class="ui-page-head">
+        <div>
+          <h1>Hiring</h1>
+          <anvil-component type="Label" name="lede" prop:role='["hr-lede"]'></anvil-component>
+        </div>
+        <anvil-component type="Button" name="new_button" prop:text="New job" prop:role='["btn", "btn-primary", "ic-plus"]' prop:visible="false"></anvil-component>
+      </div>
+
+      <div class="hr-cols">
+        <div class="hi-main">
+          <section class="hr-panel hi-jobs-box" anvil:name="jobs_part">
+            <div class="hr-sec-head">
+              <h2 class="hr-h"><i class="ic ic-briefcase"></i>Your jobs</h2>
+              <div class="ui-seg hi-filter" anvil:name="filter_box">
+                <anvil-component type="Button" name="f_all" prop:text="All" prop:role='["seg", "on"]'></anvil-component>
+                <anvil-component type="Button" name="f_open" prop:text="Open" prop:role='["seg"]'></anvil-component>
+                <anvil-component type="Button" name="f_draft" prop:text="Drafts" prop:role='["seg"]'></anvil-component>
+                <anvil-component type="Button" name="f_closed" prop:text="Closed" prop:role='["seg"]'></anvil-component>
+              </div>
+            </div>
+            <anvil-component type="RepeatingPanel" name="jobs_panel" prop:item_template="HR_Platform.Items.JobRow" prop:role='["hi-jobs"]'></anvil-component>
+            <div class="ui-empty" anvil:name="no_jobs">
+              <i class="ic ic-briefcase"></i>
+              <h3 anvil:name="no_jobs_title">No jobs yet</h3>
+              <anvil-component type="Label" name="no_jobs_text" prop:text="Create your first job: as soon as it's open, it shows on your careers page and applications land in its pipeline."></anvil-component>
+            </div>
+          </section>
+
+          <section class="hr-panel hi-open-box" anvil:name="open_part">
+            <h2 class="hr-h"><i class="ic ic-megaphone"></i>Open roles</h2>
+            <p class="hi-text">Know someone great? Send them the careers page link. They apply there in a couple of minutes, and can say in their message that you sent them.</p>
+            <anvil-component type="RepeatingPanel" name="open_panel" prop:item_template="HR_Platform.Items.JobRow" prop:role='["hi-jobs"]'></anvil-component>
+            <p class="hr-empty-line" anvil:name="no_open">No open roles right now. When the team starts hiring, the jobs show up here.</p>
+          </section>
+        </div>
+
+        <div class="hi-side">
+          <section class="hr-panel hi-careers-box">
+            <h2 class="hr-h"><i class="ic ic-globe"></i>Careers page</h2>
+            <p class="hi-text">Your public jobs page. Anyone can open it and apply, no account needed. Open jobs show there automatically.</p>
+            <a class="hi-careers-url" anvil:name="careers_link" href="#careers" target="_blank" rel="noopener"><anvil-component type="Label" name="careers_url" prop:role='["hi-url"]'></anvil-component><i class="ic ic-external"></i><span class="ui-sr">(opens in a new tab)</span></a>
+            <div class="hi-careers-actions">
+              <anvil-component type="Button" name="copy_button" prop:text="Copy link" prop:role='["btn", "btn-sm", "ic-copy"]'></anvil-component>
+            </div>
+          </section>
+
+          <section class="hr-panel hi-recent-box" anvil:name="recent_part">
+            <h2 class="hr-h"><i class="ic ic-inbox"></i>New applications</h2>
+            <anvil-component type="RepeatingPanel" name="recent_panel" prop:item_template="HR_Platform.Items.PersonRow" prop:role='["hi-recent"]'></anvil-component>
+            <p class="hr-empty-line" anvil:name="no_recent">No new applications. Share the careers page link to get some.</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </anvil-block>
+</anvil-form>

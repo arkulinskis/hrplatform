@@ -1,0 +1,11 @@
+<div class="hr-goal">
+  <div class="hr-goal-top">
+    <anvil-component type="Label" name="title" prop:role='["strong", "hr-goal-title"]' bind:text="self.item['title']"></anvil-component>
+    <anvil-component type="Label" name="status" prop:role='["badge"]'></anvil-component>
+  </div>
+  <div class="hr-bar" anvil:name="bar_box" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span anvil:name="bar"></span></div>
+  <div class="hr-goal-foot">
+    <anvil-component type="Label" name="meta" prop:role='["fine-print"]'></anvil-component>
+    <anvil-component type="Button" name="edit_button" prop:text="Update" prop:role='["btn", "btn-sm", "btn-ghost", "ic-edit"]' prop:visible="false"></anvil-component>
+  </div>
+</div>

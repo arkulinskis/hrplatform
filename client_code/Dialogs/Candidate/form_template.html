@@ -1,0 +1,89 @@
+<div class="ui hr-dlg hi-cand">
+  <div class="hi-cand-head">
+    <anvil-component type="HR_Platform.Components.Avatar" name="av" prop:size="lg"></anvil-component>
+    <div class="hi-cand-id">
+      <anvil-component type="Label" name="name" prop:role='["dlg-title", "hr-name"]' prop:text="Candidate"></anvil-component>
+      <div class="hi-cand-sub">
+        <anvil-component type="Label" name="job_line" prop:role='["hr-sub"]'></anvil-component>
+        <anvil-component type="Label" name="stage_badge" prop:role='["badge", "badge-brand"]'></anvil-component>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui-note hi-hired" anvil:name="hired_box">
+    <i class="ic ic-check"></i>
+    <anvil-component type="Label" name="hired_text" prop:text="Hired. Their onboarding checklist is ready."></anvil-component>
+    <a anvil:name="profile_link" href="#people" class="hi-hired-link">Open their profile <i class="ic ic-arrow"></i></a>
+  </div>
+
+  <div anvil:name="body_part">
+    <dl class="hr-kv hi-cand-kv">
+      <dt>Email</dt><dd><anvil-component type="Link" name="email_link"></anvil-component><anvil-component type="Label" name="email_none" prop:role='["fine-print"]' prop:text="Not given"></anvil-component></dd>
+      <dt>Phone</dt><dd><anvil-component type="Label" name="phone"></anvil-component></dd>
+      <dt>Link</dt><dd><anvil-component type="Link" name="web_link"></anvil-component><anvil-component type="Label" name="web_none" prop:role='["fine-print"]' prop:text="Not given"></anvil-component></dd>
+      <dt>Source</dt><dd><anvil-component type="Label" name="source"></anvil-component></dd>
+      <dt>Applied</dt><dd><anvil-component type="Label" name="applied"></anvil-component></dd>
+    </dl>
+
+    <div class="hi-cand-sec" anvil:name="cover_part">
+      <h3 class="hr-group-title">Cover letter</h3>
+      <anvil-component type="Label" name="cover" prop:role='["hi-desc", "hi-cover"]'></anvil-component>
+    </div>
+
+    <div class="hi-cand-sec hi-cand-controls">
+      <div class="hi-cand-rate">
+        <span class="hr-group-title" id="hi-rate-cap">Rating</span>
+        <div class="ui-seg hi-stars" role="group" aria-labelledby="hi-rate-cap">
+          <anvil-component type="Button" name="r1" prop:text="1" prop:role='["seg"]'></anvil-component>
+          <anvil-component type="Button" name="r2" prop:text="2" prop:role='["seg"]'></anvil-component>
+          <anvil-component type="Button" name="r3" prop:text="3" prop:role='["seg"]'></anvil-component>
+          <anvil-component type="Button" name="r4" prop:text="4" prop:role='["seg"]'></anvil-component>
+          <anvil-component type="Button" name="r5" prop:text="5" prop:role='["seg"]'></anvil-component>
+        </div>
+        <anvil-component type="Label" name="rate_hint" prop:role='["fine-print"]'></anvil-component>
+      </div>
+      <div class="hi-cand-stage" anvil:name="stage_part">
+        <label class="ui-field"><span>Stage</span>
+          <anvil-component type="DropDown" name="stage_box"></anvil-component>
+        </label>
+        <anvil-component type="Button" name="move_button" prop:text="Move" prop:role='["btn", "ic-arrow"]'></anvil-component>
+      </div>
+    </div>
+
+    <div class="hi-cand-sec hi-hire" anvil:name="hire_part">
+      <h3 class="hr-group-title">Hire this candidate</h3>
+      <p class="fine-print">Creates their profile (status: starting soon) and their onboarding checklist from your template.</p>
+      <div class="hr-fields2">
+        <label class="ui-field"><span>Start date</span>
+          <anvil-component type="TextBox" name="start_box"></anvil-component>
+        </label>
+        <label class="ui-field"><span>Job title <em>(optional)</em></span>
+          <anvil-component type="TextBox" name="hire_title_box"></anvil-component>
+        </label>
+      </div>
+      <anvil-component type="Label" name="hire_message" prop:role='["msg-error"]' prop:visible="false"></anvil-component>
+      <div class="hr-dlg-actions">
+        <anvil-component type="Button" name="hire_cancel_button" prop:text="Not now" prop:role='["btn", "btn-ghost"]'></anvil-component>
+        <anvil-component type="Button" name="hire_confirm_button" prop:text="Confirm hire" prop:role='["btn", "btn-primary", "ic-check"]'></anvil-component>
+      </div>
+    </div>
+
+    <div class="hi-cand-sec">
+      <h3 class="hr-group-title">Notes</h3>
+      <label class="ui-field hi-note-field"><span class="ui-sr">Add a note</span>
+        <anvil-component type="TextArea" name="note_box" prop:height="70" prop:placeholder="How did the call go? Anything the next interviewer should know?"></anvil-component>
+      </label>
+      <div class="hi-note-actions">
+        <anvil-component type="Button" name="note_button" prop:text="Add note" prop:role='["btn", "btn-sm", "ic-chat"]'></anvil-component>
+      </div>
+      <anvil-component type="RepeatingPanel" name="notes_panel" prop:item_template="HR_Platform.Items.CandidateNote" prop:role='["hi-notes-list"]'></anvil-component>
+      <p class="hr-empty-line" anvil:name="no_notes">No notes yet. The first one starts the timeline.</p>
+    </div>
+  </div>
+  <anvil-component type="Label" name="message" prop:role='["msg-error"]' prop:visible="false"></anvil-component>
+
+  <div class="hr-dlg-actions">
+    <anvil-component type="Button" name="hire_button" prop:text="Hire" prop:role='["btn", "btn-primary", "ic-award"]' prop:visible="false"></anvil-component>
+    <anvil-component type="Button" name="close_button" prop:text="Done" prop:role='["btn", "btn-ghost"]'></anvil-component>
+  </div>
+</div>

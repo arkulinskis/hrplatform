@@ -1,0 +1,35 @@
+<article class="hr-panel pfx-survey">
+  <div class="pfx-survey-head">
+    <div class="pfx-survey-q">
+      <anvil-component type="Label" name="question" prop:role='["strong", "hr-name"]' bind:text="self.item['question']"></anvil-component>
+      <anvil-component type="Label" name="meta" prop:role='["fine-print"]'></anvil-component>
+    </div>
+    <anvil-component type="Label" name="status" prop:role='["badge"]'></anvil-component>
+    <anvil-component type="Button" name="close_button" prop:text="Close" prop:role='["btn", "btn-sm", "btn-ghost", "ic-lock"]' prop:visible="false"></anvil-component>
+  </div>
+  <div anvil:name="shown_box" class="pfx-survey-body">
+    <div class="pfx-enps">
+      <div class="pfx-enps-num">
+        <anvil-component type="Label" name="score" prop:role='["hr-big"]'></anvil-component>
+        <span class="pfx-enps-cap">eNPS</span>
+      </div>
+      <div class="pfx-enps-split">
+        <div class="pfx-split-bar" anvil:name="split_bar" role="img">
+          <span class="pfx-pro" anvil:name="pro_bar"></span><span class="pfx-pas" anvil:name="pas_bar"></span><span class="pfx-det" anvil:name="det_bar"></span>
+        </div>
+        <div class="pfx-split-legend">
+          <span><i class="pfx-key pfx-pro"></i><anvil-component type="Label" name="pro_text"></anvil-component></span>
+          <span><i class="pfx-key pfx-pas"></i><anvil-component type="Label" name="pas_text"></anvil-component></span>
+          <span><i class="pfx-key pfx-det"></i><anvil-component type="Label" name="det_text"></anvil-component></span>
+        </div>
+      </div>
+    </div>
+    <h3 class="pfx-sub-h">Comments</h3>
+    <anvil-component type="RepeatingPanel" name="comments_panel" prop:item_template="HR_Platform.Items.PulseComment" prop:role='["pfx-comments"]'></anvil-component>
+    <div class="hr-empty-line" anvil:name="no_comments">Nobody left a comment.</div>
+  </div>
+  <div anvil:name="hidden_box" class="pfx-waiting">
+    <i class="ic ic-clock"></i>
+    <anvil-component type="Label" name="waiting"></anvil-component>
+  </div>
+</article>

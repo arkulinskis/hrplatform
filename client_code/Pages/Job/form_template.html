@@ -1,0 +1,53 @@
+<anvil-form layout="HR_Platform.Layouts.Shell">
+  <anvil-block slot="content">
+    <div class="ui-wrap hi-page hi-jobpage">
+      <a class="hi-back" href="#hiring"><i class="ic ic-back"></i>All jobs</a>
+
+      <div anvil:name="found_part">
+        <div class="hi-jobhead">
+          <div class="hi-jobhead-id">
+            <div class="hi-jobhead-title">
+              <anvil-component type="Label" name="title_label" prop:role='["page-title", "hr-name"]' prop:text="Job"></anvil-component>
+              <anvil-component type="Label" name="status_badge" prop:role='["badge"]'></anvil-component>
+            </div>
+            <anvil-component type="Label" name="meta" prop:role='["hr-sub", "hi-jobmeta"]'></anvil-component>
+          </div>
+          <div class="hi-jobhead-actions">
+            <div class="ui-seg hi-status" anvil:name="status_box" role="group" aria-label="Job status">
+              <anvil-component type="Button" name="s_draft" prop:text="Draft" prop:role='["seg"]'></anvil-component>
+              <anvil-component type="Button" name="s_open" prop:text="Open" prop:role='["seg"]'></anvil-component>
+              <anvil-component type="Button" name="s_closed" prop:text="Closed" prop:role='["seg"]'></anvil-component>
+            </div>
+            <anvil-component type="Button" name="edit_button" prop:text="Edit job" prop:role='["btn", "ic-edit"]' prop:visible="false"></anvil-component>
+            <anvil-component type="Button" name="add_button" prop:text="Add candidate" prop:role='["btn", "btn-primary", "ic-plus"]'></anvil-component>
+          </div>
+        </div>
+
+        <div class="hr-stats hi-jobstats">
+          <div class="hr-stat"><anvil-component type="Label" name="n_active" prop:role='["hr-big"]'></anvil-component><span>active</span></div>
+          <div class="hr-stat"><anvil-component type="Label" name="n_total" prop:role='["hr-big"]'></anvil-component><span>applied in total</span></div>
+          <div class="hr-stat"><anvil-component type="Label" name="n_hired" prop:role='["hr-big"]'></anvil-component><span>hired</span></div>
+        </div>
+
+        <h2 class="hr-h hi-board-h"><i class="ic ic-grid"></i>Pipeline</h2>
+        <p class="fine-print hi-board-hint">Open a card for details, notes and rating; Next and Back move someone one stage.</p>
+        <div class="hi-board" tabindex="0" aria-label="Pipeline board, scrolls sideways">
+          <anvil-component type="RepeatingPanel" name="cols_panel" prop:item_template="HR_Platform.Items.StageColumn" prop:role='["hi-cols"]'></anvil-component>
+        </div>
+
+        <details class="hr-panel hi-desc-box">
+          <summary class="hi-desc-sum"><i class="ic ic-file"></i>Job description</summary>
+          <anvil-component type="Label" name="desc" prop:role='["hi-desc"]'></anvil-component>
+          <anvil-component type="Label" name="careers_hint" prop:role='["fine-print", "hi-desc-foot"]'></anvil-component>
+        </details>
+      </div>
+
+      <div class="ui-empty" anvil:name="missing_part">
+        <i class="ic ic-briefcase"></i>
+        <h1 class="hi-missing-h">This job isn't available</h1>
+        <anvil-component type="Label" name="missing_text"></anvil-component>
+        <p><a href="#hiring">Back to Hiring</a></p>
+      </div>
+    </div>
+  </anvil-block>
+</anvil-form>

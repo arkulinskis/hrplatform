@@ -1,0 +1,42 @@
+<div class="ui hr-dlg hi-apply">
+  <h2 class="dlg-h">Apply</h2>
+  <anvil-component type="Label" name="job_line" prop:role='["hr-sub"]'></anvil-component>
+  <div anvil:name="form_part">
+    <div class="hr-form-stack">
+      <div class="hr-fields2">
+        <label class="ui-field"><span>Your name</span>
+          <anvil-component type="TextBox" name="name_box"></anvil-component>
+        </label>
+        <label class="ui-field"><span>Email</span>
+          <anvil-component type="TextBox" name="email_box" prop:type="email"></anvil-component>
+        </label>
+        <label class="ui-field"><span>Phone <em>(optional)</em></span>
+          <anvil-component type="TextBox" name="phone_box" prop:type="tel"></anvil-component>
+        </label>
+        <label class="ui-field"><span>Link to your CV or LinkedIn <em>(optional)</em></span>
+          <anvil-component type="TextBox" name="link_box" prop:type="url" prop:placeholder="https://"></anvil-component>
+        </label>
+      </div>
+      <label class="ui-field"><span>Why this job? <em>(a few lines is plenty)</em></span>
+        <anvil-component type="TextArea" name="cover_box" prop:height="140"></anvil-component>
+      </label>
+      <div class="hi-hp" aria-hidden="true">
+        <anvil-component type="TextBox" name="website"></anvil-component>
+      </div>
+      <anvil-component type="Label" name="message" prop:role='["msg-error"]' prop:visible="false"></anvil-component>
+      <p class="fine-print hi-apply-fine">Only the hiring team sees what you send. We use it for this job and nothing else.</p>
+    </div>
+    <div class="hr-dlg-actions">
+      <anvil-component type="Button" name="cancel_button" prop:text="Cancel" prop:role='["btn", "btn-ghost"]'></anvil-component>
+      <anvil-component type="Button" name="send_button" prop:text="Send application" prop:role='["btn", "btn-primary", "ic-mail"]'></anvil-component>
+    </div>
+  </div>
+  <div anvil:name="done_part" class="hi-apply-done">
+    <i class="ic ic-check"></i>
+    <anvil-component type="Label" name="done_text" prop:role='["hi-done-text"]' prop:text="Thanks! The team will be in touch."></anvil-component>
+    <p class="muted">We read every application. If it's a match, you'll hear from a person, usually within a week.</p>
+    <div class="hr-dlg-actions">
+      <anvil-component type="Button" name="close_button" prop:text="Back to the jobs" prop:role='["btn", "btn-primary"]'></anvil-component>
+    </div>
+  </div>
+</div>

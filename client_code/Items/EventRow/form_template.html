@@ -1,0 +1,11 @@
+<div class="hr-wrap">
+<a class="hr-event" anvil:name="link" href="#people">
+  <span class="hr-event-date"><b anvil:name="day_box"><anvil-component type="Label" name="day" prop:role='["hr-day"]'></anvil-component></b><anvil-component type="Label" name="mon" prop:role='["hr-mon"]'></anvil-component></span>
+  <anvil-component type="HR_Platform.Components.Avatar" name="av" bind:initials="self.item['initials']" bind:tone="self.item['tone']" prop:size="sm"></anvil-component>
+  <span class="hr-prow-txt">
+    <anvil-component type="Label" name="name" prop:role='["strong", "hr-name"]' bind:text="self.item['person']"></anvil-component>
+    <anvil-component type="Label" name="what" prop:role='["hr-sub"]'></anvil-component>
+  </span>
+  <i class="ic hr-event-ic" anvil:name="icon"></i>
+</a>
+</div>

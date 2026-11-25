@@ -1,0 +1,23 @@
+<div class="hi-cardwrap">
+<div class="hi-card" anvil:name="card">
+  <button type="button" class="hi-card-open" anvil:name="open_btn" anvil:on-dom:click="self.open_click">
+    <span class="hi-card-head">
+      <anvil-component type="HR_Platform.Components.Avatar" name="av" bind:initials="self.item['initials']" bind:tone="self.item['tone']" prop:size="sm"></anvil-component>
+      <span class="hi-card-txt">
+        <anvil-component type="Label" name="name" prop:role='["strong", "hr-name"]' bind:text="self.item['name']"></anvil-component>
+        <anvil-component type="Label" name="source" prop:role='["fine-print"]'></anvil-component>
+      </span>
+    </span>
+    <span class="hi-card-meta">
+      <span class="hi-rating" anvil:name="rating_box"><i class="ic ic-star"></i><anvil-component type="Label" name="rating" prop:role='["fine-print"]'></anvil-component></span>
+      <span class="hi-notes" anvil:name="notes_box"><i class="ic ic-chat"></i><anvil-component type="Label" name="notes" prop:role='["fine-print"]'></anvil-component></span>
+      <anvil-component type="Label" name="since" prop:role='["fine-print"]'></anvil-component>
+    </span>
+  </button>
+  <div class="hi-card-move" anvil:name="move_box">
+    <anvil-component type="Button" name="prev_button" prop:text="Back" prop:role='["btn", "btn-sm", "btn-ghost", "ic-back"]'></anvil-component>
+    <anvil-component type="Button" name="next_button" prop:text="Next" prop:role='["btn", "btn-sm", "btn-ghost", "ic-arrow"]'></anvil-component>
+  </div>
+  <anvil-component type="Label" name="hired" prop:role='["badge", "badge-good"]' prop:text="Hired" prop:visible="false"></anvil-component>
+</div>
+</div>

@@ -1,0 +1,10 @@
+<div class="ui hr-dlg hr-invite">
+  <anvil-component type="Label" name="heading" prop:role='["dlg-title"]'></anvil-component>
+  <p class="muted">Send this link to them by email or chat. They sign up (or sign in), open it, and their account is linked to this profile. The link works once.</p>
+  <label class="ui-field"><span>Invite link</span><anvil-component type="TextBox" name="link_box" prop:role='["hr-mono"]'></anvil-component></label>
+  <anvil-component type="Label" name="copied" prop:role='["msg-note"]' prop:visible="false" prop:text="Copied. Paste it into an email or a chat message."></anvil-component>
+  <div class="hr-dlg-actions">
+    <anvil-component type="Button" name="close_button" prop:text="Done" prop:role='["btn", "btn-ghost"]'></anvil-component>
+    <anvil-component type="Button" name="copy_button" prop:text="Copy link" prop:role='["btn", "btn-primary", "ic-copy"]'></anvil-component>
+  </div>
+</div>

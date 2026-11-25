@@ -1,0 +1,65 @@
+<anvil-form layout="HR_Platform.Layouts.Shell">
+  <anvil-block slot="content">
+    <div class="ui-wrap">
+      <div class="hr-hello">
+        <div>
+          <anvil-component type="Label" name="hello" prop:role='["page-title"]' prop:text="Hello"></anvil-component>
+          <anvil-component type="Label" name="today" prop:role='["hr-sub"]'></anvil-component>
+        </div>
+        <div class="hr-quick">
+          <a class="ui-btn primary" href="#timeoff"><i class="ic ic-plane"></i>Request time off</a>
+          <a class="ui-btn" href="#performance/kudos"><i class="ic ic-heart"></i>Give kudos</a>
+          <a class="ui-btn" href="#people"><i class="ic ic-search"></i>Find someone</a>
+        </div>
+      </div>
+
+      <div anvil:name="stats_part" class="hr-stats hr-home-stats">
+        <a class="hr-stat" href="#people"><anvil-component type="Label" name="s_head" prop:role='["hr-big"]'></anvil-component><span>people</span></a>
+        <a class="hr-stat" href="#onboarding"><anvil-component type="Label" name="s_start" prop:role='["hr-big"]'></anvil-component><span>starting soon</span></a>
+        <a class="hr-stat" href="#hiring"><anvil-component type="Label" name="s_jobs" prop:role='["hr-big"]'></anvil-component><span>open roles</span></a>
+        <a class="hr-stat" href="#hiring"><anvil-component type="Label" name="s_cands" prop:role='["hr-big"]'></anvil-component><span>in the pipeline</span></a>
+        <a class="hr-stat" href="#timeoff/approvals"><anvil-component type="Label" name="s_pending" prop:role='["hr-big"]'></anvil-component><span>requests waiting</span></a>
+      </div>
+
+      <div class="hr-cols hr-section">
+        <div>
+          <section class="hr-panel">
+            <h2 class="hr-h"><i class="ic ic-inbox"></i>Needs you <anvil-component type="Label" name="needs_count" prop:role='["badge", "badge-brand"]'></anvil-component></h2>
+            <anvil-component type="RepeatingPanel" name="needs_panel" prop:item_template="HR_Platform.Items.NeedRow" prop:role='["hr-needs"]'></anvil-component>
+            <div class="hr-caught-up" anvil:name="no_needs"><i class="ic ic-check"></i><div><b>You're all caught up.</b><span class="muted">Approvals, reviews, tasks and policies to read will show up here.</span></div></div>
+          </section>
+          <section class="hr-panel">
+            <h2 class="hr-h"><i class="ic ic-megaphone"></i>Announcements <a class="hr-h-more" href="#docs">All news</a></h2>
+            <anvil-component type="RepeatingPanel" name="ann_panel" prop:item_template="HR_Platform.Items.AnnouncementCard" prop:role='["hr-anns"]'></anvil-component>
+            <p class="hr-empty-line" anvil:name="no_ann">No announcements yet.</p>
+          </section>
+          <section class="hr-panel">
+            <h2 class="hr-h"><i class="ic ic-heart"></i>Kudos <a class="hr-h-more" href="#performance/kudos">Give kudos</a></h2>
+            <anvil-component type="RepeatingPanel" name="kudos_panel" prop:item_template="HR_Platform.Items.KudosCard" prop:role='["hr-kudos-stack"]'></anvil-component>
+            <p class="hr-empty-line" anvil:name="no_kudos">Be the first to thank a colleague.</p>
+          </section>
+        </div>
+        <div>
+          <section class="hr-panel">
+            <h2 class="hr-h"><i class="ic ic-plane"></i>Who's out <a class="hr-h-more" href="#timeoff/calendar">Calendar</a></h2>
+            <anvil-component type="RepeatingPanel" name="out_panel" prop:item_template="HR_Platform.Items.PersonRow" prop:role='["hr-list-tight"]'></anvil-component>
+            <p class="hr-empty-line" anvil:name="no_out">Everyone's in this week.</p>
+          </section>
+          <section class="hr-panel">
+            <h2 class="hr-h"><i class="ic ic-gift"></i>Coming up</h2>
+            <anvil-component type="RepeatingPanel" name="events_panel" prop:item_template="HR_Platform.Items.EventRow" prop:role='["hr-list-tight"]'></anvil-component>
+            <p class="hr-empty-line" anvil:name="no_events">No birthdays or work anniversaries in the next 30 days.</p>
+          </section>
+          <section class="hr-panel" anvil:name="joiners_part">
+            <h2 class="hr-h"><i class="ic ic-sparkle"></i>New faces</h2>
+            <anvil-component type="RepeatingPanel" name="joiners_panel" prop:item_template="HR_Platform.Items.PersonRow" prop:role='["hr-list-tight"]'></anvil-component>
+          </section>
+          <section class="hr-panel" anvil:name="bal_part">
+            <h2 class="hr-h"><i class="ic ic-calendar"></i>Your time off <a class="hr-h-more" href="#timeoff">Details</a></h2>
+            <anvil-component type="RepeatingPanel" name="bal_panel" prop:item_template="HR_Platform.Items.BalanceCard" prop:role='["hr-bal-home"]'></anvil-component>
+          </section>
+        </div>
+      </div>
+    </div>
+  </anvil-block>
+</anvil-form>

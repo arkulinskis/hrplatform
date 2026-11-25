@@ -1,0 +1,11 @@
+<div class="hr-wrap">
+<a class="hr-clcard" anvil:name="link" href="#onboarding">
+  <anvil-component type="HR_Platform.Components.Avatar" name="av" bind:initials="self.item['initials']" bind:tone="self.item['tone']"></anvil-component>
+  <span class="hr-prow-txt">
+    <anvil-component type="Label" name="title" prop:role='["strong", "hr-name"]' bind:text="self.item['title']"></anvil-component>
+    <anvil-component type="Label" name="meta" prop:role='["hr-sub"]'></anvil-component>
+    <span class="hr-bar" anvil:name="bar_box" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span anvil:name="bar"></span></span>
+  </span>
+  <anvil-component type="Label" name="late" prop:role='["badge", "badge-bad"]' prop:visible="false"></anvil-component>
+</a>
+</div>

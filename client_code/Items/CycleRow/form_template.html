@@ -1,0 +1,23 @@
+<div class="pfx-crow">
+  <div class="pfx-crow-who">
+    <anvil-component type="HR_Platform.Components.Avatar" name="av" bind:initials="self.item['initials']" bind:tone="self.item['tone']" prop:size="sm"></anvil-component>
+    <div class="pfx-crow-txt">
+      <anvil-component type="Label" name="name" prop:role='["strong", "hr-name"]' bind:text="self.item['person']"></anvil-component>
+      <anvil-component type="Label" name="sub" prop:role='["hr-sub"]'></anvil-component>
+    </div>
+  </div>
+  <div class="pfx-crow-cell">
+    <span class="pfx-crow-cap">Self-review</span>
+    <anvil-component type="Label" name="self_badge" prop:role='["badge"]'></anvil-component>
+    <a anvil:name="self_link" class="pfx-crow-link" href="#performance">Open<span class="pfx-sr"> self-review</span></a>
+  </div>
+  <div class="pfx-crow-cell">
+    <span class="pfx-crow-cap">Manager review</span>
+    <anvil-component type="Label" name="mgr_badge" prop:role='["badge"]'></anvil-component>
+    <a anvil:name="mgr_link" class="pfx-crow-link" href="#performance">Open<span class="pfx-sr"> manager review</span></a>
+  </div>
+  <div class="pfx-crow-cell pfx-crow-rating">
+    <span class="pfx-crow-cap">Rating</span>
+    <anvil-component type="Label" name="rating" prop:role='["strong"]'></anvil-component>
+  </div>
+</div>

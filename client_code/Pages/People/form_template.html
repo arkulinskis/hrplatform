@@ -1,0 +1,26 @@
+<anvil-form layout="HR_Platform.Layouts.Shell">
+  <anvil-block slot="content">
+    <div class="ui-wrap">
+      <div class="ui-page-head">
+        <div><h1>People</h1><anvil-component type="Label" name="count" prop:role='["hr-sub"]'></anvil-component></div>
+        <div class="ui-row">
+          <a class="ui-btn" href="#org"><i class="ic ic-org"></i>Org chart</a>
+          <anvil-component type="Button" name="add_button" prop:text="Add a person" prop:role='["btn", "btn-primary", "ic-plus"]' prop:visible="false"></anvil-component>
+        </div>
+      </div>
+      <div class="hr-dir-head">
+        <div class="grow"><anvil-component type="TextBox" name="search_box" prop:placeholder="Search by name, title or team" prop:role='["hr-search"]'></anvil-component></div>
+        <anvil-component type="DropDown" name="dept_box"></anvil-component>
+        <anvil-component type="DropDown" name="loc_box"></anvil-component>
+        <anvil-component type="CheckBox" name="former_box" prop:text="Include people who left" prop:visible="false"></anvil-component>
+      </div>
+      <anvil-component type="Label" name="shown" prop:role='["fine-print", "hr-count"]'></anvil-component>
+      <anvil-component type="RepeatingPanel" name="people_panel" prop:item_template="HR_Platform.Items.PersonCard" prop:role='["hr-people-grid"]'></anvil-component>
+      <div class="ui-empty" anvil:name="empty">
+        <i class="ic ic-search"></i>
+        <h3>Nobody matches that</h3>
+        <p>Try a shorter search or clear the team and location filters.</p>
+      </div>
+    </div>
+  </anvil-block>
+</anvil-form>

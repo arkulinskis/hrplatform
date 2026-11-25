@@ -1,0 +1,23 @@
+---
+custom_component: true
+properties:
+  - name: initials
+    type: string
+    default_value: "?"
+    description: One or two letters
+    default_binding_prop: true
+  - name: tone
+    type: number
+    default_value: 0
+    description: Colour 0-5 (stable per person, from the server)
+  - name: size
+    type: string
+    default_value: "md"
+    description: sm, md or lg
+toolbox_item:
+  title: Avatar
+  group: HR Platform
+help_text: |
+  A round avatar with someone's initials in one of six calm tones.
+---
+<div class="hr-av-host"><span class="hr-av tone-0 md" anvil:dom-node="box" aria-hidden="true"></span></div>

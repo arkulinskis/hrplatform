@@ -1,0 +1,17 @@
+<div class="hi-cjwrap">
+<details class="hi-cjob" anvil:name="box">
+  <summary class="hi-cjob-sum">
+    <span class="hi-cjob-txt">
+      <anvil-component type="Label" name="title" prop:role='["hi-cjob-title"]' bind:text="self.item['title']"></anvil-component>
+      <anvil-component type="Label" name="meta" prop:role='["hr-sub"]'></anvil-component>
+    </span>
+    <i class="ic ic-chevron hi-cjob-chev" aria-hidden="true"></i>
+  </summary>
+  <div class="hi-cjob-body">
+    <anvil-component type="Label" name="desc" prop:role='["hi-desc"]'></anvil-component>
+    <div class="hi-cjob-actions">
+      <anvil-component type="Button" name="apply_button" prop:text="Apply for this job" prop:role='["btn", "btn-primary", "ic-mail"]'></anvil-component>
+    </div>
+  </div>
+</details>
+</div>

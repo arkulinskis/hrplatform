@@ -1,0 +1,172 @@
+<anvil-form layout="HR_Platform.Layouts.Shell">
+  <anvil-block slot="content">
+    <div class="ui-wrap">
+      <div anvil:name="missing" class="ui-empty">
+        <i class="ic ic-user"></i>
+        <h3>We couldn't find that person</h3>
+        <anvil-component type="Label" name="missing_text"></anvil-component>
+        <p><a href="#people">Back to people</a></p>
+      </div>
+      <div anvil:name="body">
+        <div class="hr-profile-head">
+          <anvil-component type="HR_Platform.Components.Avatar" name="avatar" prop:size="xl"></anvil-component>
+          <div class="hr-profile-id">
+            <div class="ui-row">
+              <anvil-component type="Label" name="name" prop:role='["page-title"]'></anvil-component>
+              <anvil-component type="Label" name="status" prop:role='["badge"]' prop:visible="false"></anvil-component>
+              <anvil-component type="Label" name="you" prop:text="You" prop:role='["badge", "badge-brand"]' prop:visible="false"></anvil-component>
+            </div>
+            <anvil-component type="Label" name="title" prop:role='["hr-person-title"]'></anvil-component>
+            <div class="hr-profile-meta">
+              <span><i class="ic ic-users"></i><anvil-component type="Label" name="dept"></anvil-component></span>
+              <span><i class="ic ic-pin"></i><anvil-component type="Label" name="loc"></anvil-component></span>
+              <span anvil:name="mgr_part"><i class="ic ic-org"></i>Reports to <a anvil:name="mgr_link" href="#people"><anvil-component type="Label" name="mgr_name" prop:role='["hr-inline"]'></anvil-component></a></span>
+              <span><i class="ic ic-clock"></i><anvil-component type="Label" name="tenure"></anvil-component></span>
+            </div>
+          </div>
+          <div class="hr-profile-actions">
+            <anvil-component type="Button" name="edit_me_button" prop:text="Edit my details" prop:role='["btn", "ic-edit"]' prop:visible="false"></anvil-component>
+            <anvil-component type="Button" name="invite_button" prop:text="Invite" prop:role='["btn", "ic-mail"]' prop:visible="false"></anvil-component>
+            <anvil-component type="Button" name="preview_button" prop:text="Preview as" prop:role='["btn", "ic-eye"]' prop:visible="false"></anvil-component>
+            <anvil-component type="DropDown" name="hr_actions" prop:visible="false"></anvil-component>
+          </div>
+        </div>
+
+        <nav class="ui-tabs hr-tabs" aria-label="Profile sections">
+          <a href="#people" anvil:name="tab_about"><i class="ic ic-user"></i>About</a>
+          <a href="#people" anvil:name="tab_job"><i class="ic ic-briefcase"></i>Job and pay</a>
+          <a href="#people" anvil:name="tab_time"><i class="ic ic-calendar"></i>Time off</a>
+          <a href="#people" anvil:name="tab_goals"><i class="ic ic-target"></i>Goals</a>
+          <a href="#people" anvil:name="tab_docs"><i class="ic ic-file"></i>Documents</a>
+          <a href="#people" anvil:name="tab_history"><i class="ic ic-clock"></i>History</a>
+        </nav>
+
+        <div anvil:name="about_part" class="hr-cols">
+          <div>
+            <section class="hr-panel">
+              <div class="hr-sec-head"><h2>About</h2></div>
+              <anvil-component type="Label" name="about" prop:role='["hr-about"]'></anvil-component>
+              <dl class="hr-kv hr-kv-gap">
+                <dt>Work email</dt><dd><anvil-component type="Label" name="work_email"></anvil-component></dd>
+                <dt>Pronouns</dt><dd><anvil-component type="Label" name="pronouns"></anvil-component></dd>
+                <dt>Birthday</dt><dd><anvil-component type="Label" name="birthday"></anvil-component></dd>
+                <dt>Employment</dt><dd><anvil-component type="Label" name="emp_type"></anvil-component></dd>
+              </dl>
+            </section>
+            <section class="hr-panel" anvil:name="private_part">
+              <div class="hr-sec-head"><h2>Personal details</h2>
+                <anvil-component type="Button" name="edit_personal_button" prop:text="Edit" prop:role='["btn", "btn-sm", "ic-edit"]'></anvil-component></div>
+              <dl class="hr-kv">
+                <dt>Legal name</dt><dd><anvil-component type="Label" name="legal_name"></anvil-component></dd>
+                <dt>Personal email</dt><dd><anvil-component type="Label" name="personal_email"></anvil-component></dd>
+                <dt>Phone</dt><dd><anvil-component type="Label" name="phone"></anvil-component></dd>
+                <dt>Address</dt><dd><anvil-component type="Label" name="address" prop:role='["hr-pre"]'></anvil-component></dd>
+                <dt>Emergency contact</dt><dd><anvil-component type="Label" name="emergency"></anvil-component></dd>
+              </dl>
+              <p class="fine-print hr-private-note"><i class="ic ic-lock"></i> Only this person and HR can see this section.</p>
+            </section>
+            <section class="hr-panel" anvil:name="kudos_part">
+              <div class="hr-sec-head"><h2>Kudos received</h2></div>
+              <anvil-component type="RepeatingPanel" name="kudos_panel" prop:item_template="HR_Platform.Items.KudosCard" prop:role='["hr-kudos-stack"]'></anvil-component>
+            </section>
+          </div>
+          <div>
+            <section class="hr-panel" anvil:name="manager_part">
+              <div class="hr-sec-head"><h2>Manager</h2></div>
+              <anvil-component type="RepeatingPanel" name="manager_panel" prop:item_template="HR_Platform.Items.PersonRow" prop:role='["hr-list-tight"]'></anvil-component>
+            </section>
+            <section class="hr-panel" anvil:name="reports_part">
+              <div class="hr-sec-head"><h2>Direct reports</h2><anvil-component type="Label" name="reports_count" prop:role='["badge"]'></anvil-component></div>
+              <anvil-component type="RepeatingPanel" name="reports_panel" prop:item_template="HR_Platform.Items.PersonRow" prop:role='["hr-list-tight"]'></anvil-component>
+            </section>
+            <section class="hr-panel">
+              <a class="hr-org-mini" anvil:name="org_link" href="#org"><i class="ic ic-org"></i><span>See them on the org chart</span><i class="ic ic-chevron"></i></a>
+            </section>
+          </div>
+        </div>
+
+        <div anvil:name="job_part" class="hr-cols">
+          <div>
+            <section class="hr-panel">
+              <div class="hr-sec-head"><h2>Job</h2>
+                <anvil-component type="Button" name="edit_job_button" prop:text="Edit job" prop:role='["btn", "btn-sm", "ic-edit"]' prop:visible="false"></anvil-component></div>
+              <dl class="hr-kv">
+                <dt>Job title</dt><dd><anvil-component type="Label" name="j_title"></anvil-component></dd>
+                <dt>Team</dt><dd><anvil-component type="Label" name="j_dept"></anvil-component></dd>
+                <dt>Location</dt><dd><anvil-component type="Label" name="j_loc"></anvil-component></dd>
+                <dt>Manager</dt><dd><anvil-component type="Label" name="j_mgr"></anvil-component></dd>
+                <dt>Employment type</dt><dd><anvil-component type="Label" name="j_type"></anvil-component></dd>
+                <dt>Start date</dt><dd><anvil-component type="Label" name="j_start"></anvil-component></dd>
+                <dt>Access</dt><dd><anvil-component type="Label" name="j_role"></anvil-component></dd>
+              </dl>
+              <div anvil:name="term_part" class="ui-note hr-term-note"><anvil-component type="Label" name="term_text"></anvil-component></div>
+            </section>
+            <section class="hr-panel" anvil:name="pay_part">
+              <div class="hr-sec-head"><h2>Pay</h2>
+                <anvil-component type="Button" name="edit_pay_button" prop:text="Change pay" prop:role='["btn", "btn-sm", "ic-edit"]' prop:visible="false"></anvil-component></div>
+              <anvil-component type="Label" name="pay" prop:role='["hr-big", "hr-pay"]'></anvil-component>
+              <anvil-component type="Label" name="pay_since" prop:role='["fine-print"]'></anvil-component>
+              <p class="fine-print hr-private-note"><i class="ic ic-lock"></i> Visible to this person, their managers and HR.</p>
+            </section>
+            <div anvil:name="pay_locked" class="hr-lock"><i class="ic ic-lock"></i>Pay is visible only to this person, their managers and HR.</div>
+          </div>
+          <div>
+            <section class="hr-panel" anvil:name="notes_part">
+              <div class="hr-sec-head"><h2>HR notes</h2>
+                <anvil-component type="Button" name="edit_notes_button" prop:text="Edit" prop:role='["btn", "btn-sm", "ic-edit"]'></anvil-component></div>
+              <anvil-component type="Label" name="notes" prop:role='["hr-pre"]'></anvil-component>
+              <p class="fine-print hr-private-note"><i class="ic ic-lock"></i> HR admins only. Never shown to the person or their manager.</p>
+            </section>
+            <section class="hr-panel" anvil:name="lists_part">
+              <div class="hr-sec-head"><h2>Checklists</h2></div>
+              <anvil-component type="RepeatingPanel" name="lists_panel" prop:item_template="HR_Platform.Items.ChecklistCard" prop:role='["hr-cl-stack"]'></anvil-component>
+            </section>
+          </div>
+        </div>
+
+        <div anvil:name="time_part">
+          <div anvil:name="time_locked" class="hr-lock"><i class="ic ic-lock"></i>Time off balances are visible to this person, their managers and HR.</div>
+          <anvil-component type="RepeatingPanel" name="bal_panel" prop:item_template="HR_Platform.Items.BalanceCard" prop:role='["hr-bal-grid"]'></anvil-component>
+          <p class="hr-section"><a class="ui-btn" href="#timeoff" anvil:name="time_link"><i class="ic ic-calendar"></i>Open time off</a></p>
+        </div>
+
+        <div anvil:name="goals_part">
+          <div anvil:name="goals_locked" class="hr-lock"><i class="ic ic-lock"></i>Goals are visible to this person, their managers and HR.</div>
+          <section class="hr-panel" anvil:name="goals_box">
+            <div class="hr-sec-head"><h2>Goals</h2><a class="ui-btn sm" href="#performance/goals">Manage goals</a></div>
+            <anvil-component type="RepeatingPanel" name="goals_panel" prop:item_template="HR_Platform.Items.GoalRow" prop:role='["hr-goals"]'></anvil-component>
+            <p class="hr-empty-line" anvil:name="no_goals">No goals yet.</p>
+          </section>
+        </div>
+
+        <div anvil:name="docs_part">
+          <div anvil:name="docs_locked" class="hr-lock"><i class="ic ic-lock"></i>Documents and equipment are private to this person and HR.</div>
+          <div class="hr-cols" anvil:name="docs_box">
+            <section class="hr-panel">
+              <div class="hr-sec-head"><h2>Files</h2>
+                <anvil-component type="FileLoader" name="uploader" prop:text="Upload a file" prop:role='["btn", "btn-sm", "hr-upload"]'></anvil-component></div>
+              <anvil-component type="RepeatingPanel" name="files_panel" prop:item_template="HR_Platform.Items.FileRow" prop:role='["hr-files"]'></anvil-component>
+              <p class="hr-empty-line" anvil:name="no_files">No files yet. Contracts, certificates and letters can live here (up to 8 MB each).</p>
+            </section>
+            <section class="hr-panel">
+              <div class="hr-sec-head"><h2>Equipment</h2>
+                <anvil-component type="Button" name="asset_button" prop:text="Give equipment" prop:role='["btn", "btn-sm", "ic-plus"]' prop:visible="false"></anvil-component></div>
+              <anvil-component type="RepeatingPanel" name="assets_panel" prop:item_template="HR_Platform.Items.AssetRow" prop:role='["hr-files"]'></anvil-component>
+              <p class="hr-empty-line" anvil:name="no_assets">No equipment recorded.</p>
+            </section>
+          </div>
+        </div>
+
+        <div anvil:name="history_part">
+          <div anvil:name="history_locked" class="hr-lock"><i class="ic ic-lock"></i>The change history is private to this person and HR.</div>
+          <section class="hr-panel" anvil:name="history_box">
+            <div class="hr-sec-head"><h2>Change history</h2></div>
+            <p class="hr-lede">Every change to this record: what, when it takes effect, and who made it.</p>
+            <anvil-component type="RepeatingPanel" name="history_panel" prop:item_template="HR_Platform.Items.HistoryRow" prop:role='["hr-hist-list"]'></anvil-component>
+            <p class="hr-empty-line" anvil:name="no_history">No changes recorded yet.</p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </anvil-block>
+</anvil-form>

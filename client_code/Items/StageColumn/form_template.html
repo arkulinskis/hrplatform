@@ -1,0 +1,10 @@
+<div class="hi-colwrap">
+<section class="hi-col" anvil:name="col">
+  <h2 class="hi-col-head">
+    <anvil-component type="Label" name="label" prop:role='["hi-col-title"]' bind:text="self.item['label']"></anvil-component>
+    <anvil-component type="Label" name="count" prop:role='["hi-col-count"]'></anvil-component>
+  </h2>
+  <anvil-component type="RepeatingPanel" name="cards_panel" prop:item_template="HR_Platform.Items.CandidateCard" prop:role='["hi-cards"]'></anvil-component>
+  <anvil-component type="Label" name="empty" prop:role='["hi-col-empty"]' prop:visible="false"></anvil-component>
+</section>
+</div>

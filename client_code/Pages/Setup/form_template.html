@@ -1,0 +1,50 @@
+<anvil-form layout="HR_Platform.Layouts.Shell">
+  <anvil-block slot="content">
+    <div class="ui-wrap hr-setup">
+      <div anvil:name="create_part">
+        <div class="ui-page-head"><div>
+          <h1>Set up your company</h1>
+          <p class="hr-lede">Your company gets its own private workspace. You'll be its first HR admin; invite everyone else from their profile.</p>
+        </div></div>
+        <div class="hr-setup-grid">
+          <div class="hr-panel">
+            <h2 class="hr-h"><i class="ic ic-briefcase"></i>Create a workspace</h2>
+            <div class="hr-form-stack">
+              <label class="ui-field"><span>Company name</span>
+                <anvil-component type="TextBox" name="name_box" prop:placeholder="e.g. Larkspur Studio"></anvil-component></label>
+              <div class="hr-fields2">
+                <label class="ui-field"><span>Country</span>
+                  <anvil-component type="TextBox" name="country_box" prop:text="Canada"></anvil-component></label>
+                <label class="ui-field"><span>Currency</span>
+                  <anvil-component type="DropDown" name="currency_box"></anvil-component></label>
+              </div>
+              <label class="ui-field"><span>Your job title</span>
+                <anvil-component type="TextBox" name="title_box" prop:text="Head of People"></anvil-component></label>
+              <label class="ui-check hr-sample-tick"><anvil-component type="CheckBox" name="sample_box" prop:checked="true" prop:text="Start with a sample company of 26 people, so every page has something to explore. Remove it in Settings whenever you're ready."></anvil-component></label>
+              <anvil-component type="Label" name="create_msg" prop:role='["msg-error"]' prop:visible="false"></anvil-component>
+              <div><anvil-component type="Button" name="create_button" prop:text="Create my workspace" prop:role='["btn", "btn-primary", "btn-lg", "ic-arrow"]'></anvil-component></div>
+            </div>
+          </div>
+          <div class="hr-panel">
+            <h2 class="hr-h"><i class="ic ic-link"></i>Joining your team?</h2>
+            <p class="muted">Ask your HR person to press <b>Invite</b> on your profile. Open the link they send you, or paste its code here.</p>
+            <div class="hr-form-stack">
+              <label class="ui-field"><span>Invite code</span>
+                <anvil-component type="TextBox" name="code_box" prop:placeholder="Paste the code or the whole link"></anvil-component></label>
+              <div><anvil-component type="Button" name="join_button" prop:text="Join my company" prop:role='["btn"]'></anvil-component></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div anvil:name="join_part" class="ui-narrow">
+        <div class="hr-panel">
+          <h1 class="hr-join-h">Join your company</h1>
+          <p class="muted">You were invited to your company's HR Platform workspace. Joining links this account to your profile there.</p>
+          <anvil-component type="Label" name="join_msg" prop:role='["msg-error"]' prop:visible="false"></anvil-component>
+          <div class="ui-row"><anvil-component type="Button" name="join_now_button" prop:text="Join now" prop:role='["btn", "btn-primary", "btn-lg", "ic-check"]'></anvil-component>
+          <a class="ui-btn ghost" href="#setup">Set up a new company instead</a></div>
+        </div>
+      </div>
+    </div>
+  </anvil-block>
+</anvil-form>

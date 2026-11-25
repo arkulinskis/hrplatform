@@ -1,0 +1,21 @@
+<div class="ui hr-dlg pfx-dlg-kudos">
+  <h2 class="dlg-h">Give kudos</h2>
+  <p class="hr-lede pfx-flat">Say thanks for something specific. The whole company sees it.</p>
+  <div class="hr-form-stack">
+    <label class="ui-field"><span>Who is it for?</span>
+      <anvil-component type="DropDown" name="person_drop"></anvil-component>
+    </label>
+    <div class="ui-field" anvil:name="values_box">
+      <span>Company value <em>(optional)</em></span>
+      <anvil-component type="DropDown" name="value_drop"></anvil-component>
+    </div>
+    <label class="ui-field"><span>What did they do?</span>
+      <anvil-component type="TextArea" name="message_box" prop:placeholder="e.g. Stayed late to get the release out and still helped me with my first deploy." prop:height="110"></anvil-component>
+    </label>
+    <anvil-component type="Label" name="message" prop:role='["msg-error"]' prop:visible="false"></anvil-component>
+  </div>
+  <div class="hr-dlg-actions">
+    <anvil-component type="Button" name="cancel_button" prop:text="Cancel" prop:role='["btn", "btn-ghost"]'></anvil-component>
+    <anvil-component type="Button" name="save_button" prop:text="Send kudos" prop:role='["btn", "btn-primary", "ic-award"]'></anvil-component>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="ui hr-dlg hr-add-person">
+  <h2 class="dlg-h">Add a person</h2>
+  <p class="muted">They get a profile right away. Invite them from their profile when you want them to sign in.</p>
+  <div class="hr-form-stack">
+    <div class="hr-fields2">
+      <label class="ui-field"><span>First name</span><anvil-component type="TextBox" name="first_name"></anvil-component></label>
+      <label class="ui-field"><span>Last name</span><anvil-component type="TextBox" name="last_name"></anvil-component></label>
+      <label class="ui-field"><span>Work email <em>(optional)</em></span><anvil-component type="TextBox" name="work_email"></anvil-component></label>
+      <label class="ui-field"><span>Job title</span><anvil-component type="TextBox" name="title"></anvil-component></label>
+      <label class="ui-field"><span>Team</span><anvil-component type="DropDown" name="department"></anvil-component></label>
+      <label class="ui-field"><span>Location</span><anvil-component type="DropDown" name="location"></anvil-component></label>
+      <label class="ui-field"><span>Manager</span><anvil-component type="DropDown" name="manager"></anvil-component></label>
+      <label class="ui-field"><span>Employment type</span><anvil-component type="DropDown" name="employment_type"></anvil-component></label>
+      <label class="ui-field"><span>Start date</span><anvil-component type="TextBox" name="start_date"></anvil-component></label>
+      <label class="ui-field"><span>Yearly pay <em>(optional)</em></span><anvil-component type="TextBox" name="pay_rate" prop:type="number"></anvil-component></label>
+    </div>
+    <label class="ui-check"><anvil-component type="CheckBox" name="onboarding" prop:checked="true" prop:text="Create their onboarding checklist from the company template"></anvil-component></label>
+    <anvil-component type="Label" name="message" prop:role='["msg-error"]' prop:visible="false"></anvil-component>
+  </div>
+  <div class="hr-dlg-actions">
+    <anvil-component type="Button" name="cancel_button" prop:text="Cancel" prop:role='["btn", "btn-ghost"]'></anvil-component>
+    <anvil-component type="Button" name="save_button" prop:text="Add person" prop:role='["btn", "btn-primary", "ic-plus"]'></anvil-component>
+  </div>
+</div>

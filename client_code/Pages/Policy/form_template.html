@@ -1,0 +1,51 @@
+<anvil-form layout="HR_Platform.Layouts.Shell">
+  <anvil-block slot="content">
+    <div class="ui-wrap dc-policy-page">
+      <a class="pfx-back" href="#docs"><i class="ic ic-back"></i>Policies and news</a>
+
+      <div anvil:name="missing_box" class="ui-empty">
+        <i class="ic ic-book"></i>
+        <h1 class="pfx-missing-h">This policy isn't here any more</h1>
+        <anvil-component type="Label" name="missing_text"></anvil-component>
+        <p><a href="#docs">See all policies</a></p>
+      </div>
+
+      <div anvil:name="main_box" class="dc-policy-main">
+        <article class="dc-read">
+          <div class="dc-read-head">
+            <anvil-component type="Label" name="title_label" prop:role='["page-title"]'></anvil-component>
+            <anvil-component type="Label" name="meta" prop:role='["hr-sub"]'></anvil-component>
+            <div class="ui-row dc-hr-actions" anvil:name="hr_actions">
+              <anvil-component type="Button" name="edit_button" prop:text="Edit policy" prop:role='["btn", "btn-sm", "ic-edit"]'></anvil-component>
+              <anvil-component type="Button" name="delete_button" prop:text="Delete policy" prop:role='["btn", "btn-sm", "btn-danger", "ic-trash"]'></anvil-component>
+            </div>
+          </div>
+          <anvil-component type="Label" name="body" prop:role='["dc-body"]'></anvil-component>
+          <div class="dc-ack" anvil:name="ack_box">
+            <anvil-component type="Label" name="ack_prompt" prop:role='["dc-ack-prompt"]' prop:text="Please read the whole policy, then confirm."></anvil-component>
+            <anvil-component type="Button" name="ack_button" prop:text="I have read and understood this" prop:role='["btn", "btn-primary", "btn-lg", "ic-check"]'></anvil-component>
+          </div>
+          <anvil-component type="Label" name="acked_badge" prop:role='["badge", "badge-good", "dc-acked"]' prop:visible="false"></anvil-component>
+          <anvil-component type="Label" name="ref_note" prop:role='["fine-print"]' prop:visible="false" prop:text="No acknowledgement needed: this policy is here for reference."></anvil-component>
+        </article>
+
+        <section class="hr-panel dc-who" anvil:name="who_box">
+          <h2 class="hr-h"><i class="ic ic-users"></i>Who has acknowledged it</h2>
+          <anvil-component type="Label" name="who_summary" prop:role='["hr-sub"]'></anvil-component>
+          <div class="dc-who-cols">
+            <div class="dc-who-col">
+              <anvil-component type="Label" name="yes_head" prop:role='["strong", "dc-who-h"]'></anvil-component>
+              <anvil-component type="RepeatingPanel" name="yes_panel" prop:item_template="HR_Platform.Items.PersonRow" prop:role='["hr-list-tight", "dc-yes"]'></anvil-component>
+              <div class="hr-empty-line" anvil:name="no_yes">Nobody yet.</div>
+            </div>
+            <div class="dc-who-col">
+              <anvil-component type="Label" name="no_head" prop:role='["strong", "dc-who-h"]'></anvil-component>
+              <anvil-component type="RepeatingPanel" name="no_panel" prop:item_template="HR_Platform.Items.PersonRow" prop:role='["hr-list-tight", "dc-no"]'></anvil-component>
+              <div class="hr-empty-line" anvil:name="no_no">Everyone has acknowledged it.</div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </anvil-block>
+</anvil-form>

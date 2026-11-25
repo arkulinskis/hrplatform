@@ -1,0 +1,11 @@
+<div class="pfx-cycle">
+  <div class="pfx-cycle-top">
+    <a class="pfx-cycle-name" anvil:name="link" href="#performance/reviews">
+      <anvil-component type="Label" name="name_link" prop:role='["strong", "hr-name"]' bind:text="self.item['name']"></anvil-component>
+    </a>
+    <anvil-component type="Label" name="name_plain" prop:role='["strong", "hr-name"]' bind:text="self.item['name']" prop:visible="false"></anvil-component>
+    <anvil-component type="Label" name="status" prop:role='["badge"]'></anvil-component>
+  </div>
+  <div class="hr-bar" anvil:name="bar_box" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span anvil:name="bar"></span></div>
+  <anvil-component type="Label" name="meta" prop:role='["fine-print"]'></anvil-component>
+</div>

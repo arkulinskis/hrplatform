@@ -1,0 +1,29 @@
+<anvil-form layout="HR_Platform.Layouts.Shell">
+  <anvil-block slot="content">
+    <div class="ui-wrap hi-careers">
+      <div anvil:name="found_part">
+        <div class="hi-careers-head">
+          <anvil-component type="Label" name="title_label" prop:role='["page-title", "hr-name"]' prop:text="Careers"></anvil-component>
+          <anvil-component type="Label" name="intro" prop:role='["hr-lede", "hi-careers-intro"]'></anvil-component>
+          <div class="ui-note hi-demo-note" anvil:name="demo_note"><i class="ic ic-info"></i> This is a sample company, made up to show what a careers page looks like. Applications here go to the demo team.</div>
+        </div>
+
+        <h2 class="hr-h hi-careers-h"><anvil-component type="Label" name="count" prop:role='["hi-inline"]' prop:text="Open jobs"></anvil-component></h2>
+        <anvil-component type="RepeatingPanel" name="jobs_panel" prop:item_template="HR_Platform.Items.CareerJob" prop:role='["hi-cjobs"]'></anvil-component>
+        <div class="ui-empty" anvil:name="no_jobs">
+          <i class="ic ic-briefcase"></i>
+          <h3>No open jobs right now</h3>
+          <p>Nothing's open at the moment. Check back soon: new jobs appear here as soon as the team opens them.</p>
+        </div>
+        <p class="fine-print hi-careers-foot">Every application is read by a person on the team. We only use what you send for hiring.</p>
+      </div>
+
+      <div class="ui-empty hi-careers-missing" anvil:name="missing_part">
+        <i class="ic ic-search"></i>
+        <h1 class="hi-missing-h">We couldn't find that careers page</h1>
+        <p>The link may be mistyped, or the company may have moved its page. Ask whoever sent it for a fresh link.</p>
+        <p><a href="#careers/larkspur">See a sample careers page</a></p>
+      </div>
+    </div>
+  </anvil-block>
+</anvil-form>

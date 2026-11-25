@@ -1,0 +1,29 @@
+<anvil-form layout="HR_Platform.Layouts.Shell">
+  <anvil-block slot="content">
+    <div class="ui-wrap">
+      <div class="ui-page-head"><div><h1>Everything</h1><anvil-component type="Label" name="sub" prop:role='["hr-sub"]'></anvil-component></div></div>
+      <div class="hr-more-grid">
+        <a class="hr-more-link" anvil:name="my_link" href="#person"><i class="ic ic-user"></i><b>My profile</b><span>Your details, pay, documents and history</span></a>
+        <a class="hr-more-link" href="#people"><i class="ic ic-users"></i><b>People</b><span>Everyone in the company, searchable</span></a>
+        <a class="hr-more-link" href="#org"><i class="ic ic-org"></i><b>Org chart</b><span>Who reports to whom, and the open roles</span></a>
+        <a class="hr-more-link" href="#timeoff"><i class="ic ic-calendar"></i><b>Time off</b><span>Balances, requests, approvals and the who's-out calendar</span></a>
+        <a class="hr-more-link" href="#hiring"><i class="ic ic-briefcase"></i><b>Hiring</b><span>Jobs, candidates and the careers page</span></a>
+        <a class="hr-more-link" href="#onboarding"><i class="ic ic-clipboard"></i><b>Onboarding and offboarding</b><span>Checklists for people joining and leaving</span></a>
+        <a class="hr-more-link" href="#performance"><i class="ic ic-target"></i><b>Performance</b><span>Reviews, goals, kudos and the anonymous pulse</span></a>
+        <a class="hr-more-link" href="#docs"><i class="ic ic-book"></i><b>Policies and news</b><span>The handbook, policies to acknowledge, announcements</span></a>
+        <a class="hr-more-link" anvil:name="reports_link" href="#reports"><i class="ic ic-chart"></i><b>Reports</b><span>Headcount, turnover, time off and payroll exports</span></a>
+        <a class="hr-more-link" anvil:name="settings_link" href="#settings"><i class="ic ic-sliders"></i><b>Settings</b><span>Company, teams, leave types, checklists, import and export</span></a>
+        <a class="hr-more-link" href="#profile"><i class="ic ic-lock"></i><b>Account</b><span>Your sign-in, name and appearance</span></a>
+      </div>
+
+      <section class="hr-panel hr-section" anvil:name="preview_part">
+        <h2 class="hr-h"><i class="ic ic-eye"></i>See the app as someone else</h2>
+        <p class="hr-lede">Check what a manager or an employee sees before you roll something out. You'll act as them until you press Back to me.</p>
+        <div class="ui-row">
+          <anvil-component type="DropDown" name="person_box"></anvil-component>
+          <anvil-component type="Button" name="preview_button" prop:text="Preview" prop:role='["btn", "ic-eye"]'></anvil-component>
+        </div>
+      </section>
+    </div>
+  </anvil-block>
+</anvil-form>

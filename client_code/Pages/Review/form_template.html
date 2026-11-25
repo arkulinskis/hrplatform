@@ -1,0 +1,59 @@
+<anvil-form layout="HR_Platform.Layouts.Shell">
+  <anvil-block slot="content">
+    <div class="ui-wrap pfx-review-page">
+      <a class="pfx-back" href="#performance/reviews"><i class="ic ic-back"></i>Performance</a>
+
+      <div anvil:name="missing_box" class="ui-empty pfx-missing">
+        <i class="ic ic-lock"></i>
+        <h1 class="pfx-missing-h">This review isn't one you can open</h1>
+        <anvil-component type="Label" name="missing_text"></anvil-component>
+        <p><a href="#performance/reviews">Back to your reviews</a></p>
+      </div>
+
+      <div anvil:name="main_box">
+        <div class="ui-page-head pfx-review-head">
+          <div class="pfx-review-id">
+            <anvil-component type="HR_Platform.Components.Avatar" name="av" prop:size="lg"></anvil-component>
+            <div class="pfx-review-txt">
+              <anvil-component type="Label" name="title_label" prop:role='["page-title"]'></anvil-component>
+              <anvil-component type="Label" name="meta" prop:role='["hr-sub"]'></anvil-component>
+            </div>
+          </div>
+          <anvil-component type="Label" name="status" prop:role='["badge"]'></anvil-component>
+        </div>
+        <anvil-component type="Label" name="readonly_note" prop:role='["msg-note"]' prop:visible="false"></anvil-component>
+
+        <div class="hr-cols pfx-review-cols">
+          <div class="pfx-col">
+            <section class="hr-panel pfx-questions">
+              <h2 class="hr-h"><i class="ic ic-clipboard"></i>Questions</h2>
+              <anvil-component type="RepeatingPanel" name="questions_panel" prop:item_template="HR_Platform.Items.ReviewQuestion" prop:role='["pfx-q-list"]'></anvil-component>
+            </section>
+            <section class="hr-panel pfx-rating-box">
+              <h2 class="hr-h" id="pfx-rating-h"><i class="ic ic-star"></i>Overall rating</h2>
+              <div anvil:name="rating_edit">
+                <div class="ui-seg pfx-rating" role="group" aria-labelledby="pfx-rating-h">
+                  <anvil-component type="Button" name="r1" prop:text="1 Needs improvement" prop:role='["seg"]'></anvil-component>
+                  <anvil-component type="Button" name="r2" prop:text="2 Developing" prop:role='["seg"]'></anvil-component>
+                  <anvil-component type="Button" name="r3" prop:text="3 Solid" prop:role='["seg"]'></anvil-component>
+                  <anvil-component type="Button" name="r4" prop:text="4 Strong" prop:role='["seg"]'></anvil-component>
+                  <anvil-component type="Button" name="r5" prop:text="5 Outstanding" prop:role='["seg"]'></anvil-component>
+                </div>
+              </div>
+              <anvil-component type="Label" name="rating_text" prop:role='["pfx-rating-text"]' prop:visible="false"></anvil-component>
+            </section>
+            <div class="hr-dlg-actions pfx-review-actions" anvil:name="actions">
+              <anvil-component type="Button" name="save_button" prop:text="Save draft" prop:role='["btn", "btn-ghost"]'></anvil-component>
+              <anvil-component type="Button" name="submit_button" prop:text="Submit review" prop:role='["btn", "btn-primary", "ic-check"]'></anvil-component>
+            </div>
+          </div>
+          <aside class="hr-panel pfx-context">
+            <h2 class="hr-h"><i class="ic ic-target"></i>Their goals</h2>
+            <anvil-component type="RepeatingPanel" name="goals_panel" prop:item_template="HR_Platform.Items.GoalRow" prop:role='["hr-goals", "pfx-review-goals"]'></anvil-component>
+            <div class="hr-empty-line" anvil:name="no_goals">No goals to show.</div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </anvil-block>
+</anvil-form>

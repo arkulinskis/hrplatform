@@ -1,0 +1,34 @@
+<div class="ui hr-dlg pfx-dlg-goal">
+  <anvil-component type="Label" name="heading" prop:role='["dlg-title"]' prop:text="Add a goal"></anvil-component>
+  <anvil-component type="Label" name="for_who" prop:role='["fine-print"]' prop:visible="false"></anvil-component>
+  <div class="hr-form-stack">
+    <label class="ui-field"><span>Goal</span>
+      <anvil-component type="TextBox" name="title_box" prop:placeholder="e.g. Ship the new onboarding emails"></anvil-component>
+    </label>
+    <div class="hr-fields2">
+      <label class="ui-field"><span>Due date <em>(optional)</em></span>
+        <anvil-component type="TextBox" name="due_box"></anvil-component>
+      </label>
+      <label class="ui-field"><span>Status</span>
+        <anvil-component type="DropDown" name="status_drop"></anvil-component>
+      </label>
+    </div>
+    <label class="ui-field"><span>Progress <em>(0 to 100%)</em></span>
+      <anvil-component type="TextBox" name="progress_box"></anvil-component>
+    </label>
+    <div class="ui-seg pfx-quick" role="group" aria-label="Quick progress">
+      <anvil-component type="Button" name="p0" prop:text="0%" prop:role='["seg"]'></anvil-component>
+      <anvil-component type="Button" name="p25" prop:text="25%" prop:role='["seg"]'></anvil-component>
+      <anvil-component type="Button" name="p50" prop:text="50%" prop:role='["seg"]'></anvil-component>
+      <anvil-component type="Button" name="p75" prop:text="75%" prop:role='["seg"]'></anvil-component>
+      <anvil-component type="Button" name="p100" prop:text="100%" prop:role='["seg"]'></anvil-component>
+    </div>
+    <anvil-component type="Label" name="message" prop:role='["msg-error"]' prop:visible="false"></anvil-component>
+  </div>
+  <div class="hr-dlg-actions pfx-dlg-actions">
+    <anvil-component type="Button" name="delete_button" prop:text="Delete goal" prop:role='["btn", "btn-danger", "ic-trash"]' prop:visible="false"></anvil-component>
+    <span class="pfx-grow"></span>
+    <anvil-component type="Button" name="cancel_button" prop:text="Cancel" prop:role='["btn", "btn-ghost"]'></anvil-component>
+    <anvil-component type="Button" name="save_button" prop:text="Save goal" prop:role='["btn", "btn-primary", "ic-check"]'></anvil-component>
+  </div>
+</div>

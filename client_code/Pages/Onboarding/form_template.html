@@ -1,0 +1,50 @@
+<anvil-form layout="HR_Platform.Layouts.Shell">
+  <anvil-block slot="content">
+    <div class="ui-wrap ob-page">
+      <div class="ui-page-head">
+        <div>
+          <h1>Onboarding</h1>
+          <p class="hr-lede">Checklists for someone's first weeks (onboarding) and last days (offboarding). Each task belongs to HR, IT, their manager or the person, with a due date. <span anvil:name="templates_note">Templates are edited in <a href="#settings/checklists">Settings, Checklists</a>.</span></p>
+        </div>
+      </div>
+
+      <section class="hr-panel ob-start" anvil:name="start_part">
+        <h2 class="hr-h"><i class="ic ic-clipboard"></i>Start a checklist</h2>
+        <div class="ob-start-row">
+          <label class="ui-field ob-grow"><span>Person</span>
+            <anvil-component type="DropDown" name="person_box"></anvil-component>
+          </label>
+          <label class="ui-field"><span>Kind</span>
+            <anvil-component type="DropDown" name="kind_box"></anvil-component>
+          </label>
+          <anvil-component type="Button" name="start_button" prop:text="Start checklist" prop:role='["btn", "btn-primary", "ic-plus"]'></anvil-component>
+        </div>
+        <p class="fine-print">New hires get their onboarding checklist automatically when you hire them. Offboarding needs a last day on their profile first.</p>
+      </section>
+
+      <section class="hr-section">
+        <h2 class="hr-h"><i class="ic ic-check"></i><anvil-component type="Label" name="tasks_title" prop:role='["hi-inline"]' prop:text="Your tasks"></anvil-component></h2>
+        <div class="hr-panel ob-tasks-box">
+          <anvil-component type="RepeatingPanel" name="tasks_panel" prop:item_template="HR_Platform.Items.TaskRow" prop:role='["ob-tasks"]'></anvil-component>
+          <p class="hr-empty-line" anvil:name="no_tasks">Nothing waiting for you. When a checklist has a task for you, it shows up here.</p>
+        </div>
+      </section>
+
+      <section class="hr-section">
+        <h2 class="hr-h"><i class="ic ic-clock"></i>In progress</h2>
+        <h3 class="hr-group-title ob-sub">Onboarding</h3>
+        <anvil-component type="RepeatingPanel" name="on_panel" prop:item_template="HR_Platform.Items.ChecklistCard" prop:role='["ob-grid"]'></anvil-component>
+        <p class="hr-empty-line" anvil:name="no_on">Nobody is starting right now.</p>
+        <h3 class="hr-group-title ob-sub">Offboarding</h3>
+        <anvil-component type="RepeatingPanel" name="off_panel" prop:item_template="HR_Platform.Items.ChecklistCard" prop:role='["ob-grid"]'></anvil-component>
+        <p class="hr-empty-line" anvil:name="no_off">Nobody is leaving right now.</p>
+      </section>
+
+      <section class="hr-section">
+        <h2 class="hr-h"><i class="ic ic-award"></i>Recently completed</h2>
+        <anvil-component type="RepeatingPanel" name="done_panel" prop:item_template="HR_Platform.Items.ChecklistCard" prop:role='["ob-grid"]'></anvil-component>
+        <p class="hr-empty-line" anvil:name="no_done">No finished checklists yet.</p>
+      </section>
+    </div>
+  </anvil-block>
+</anvil-form>

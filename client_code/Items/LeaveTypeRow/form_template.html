@@ -1,0 +1,20 @@
+<div class="hr-wrap">
+<div class="st-type" anvil:name="row">
+  <label class="ui-field st-type-name"><span>Name</span>
+    <anvil-component type="TextBox" name="name_box" prop:placeholder="e.g. Vacation"></anvil-component>
+  </label>
+  <label class="ui-field st-type-days"><span>Days a year</span>
+    <anvil-component type="TextBox" name="days_box"></anvil-component>
+  </label>
+  <div class="st-type-paid">
+    <anvil-component type="CheckBox" name="paid_box" prop:text="Paid"></anvil-component>
+  </div>
+  <label class="ui-field st-type-color"><span>Colour</span>
+    <div class="st-color-pick"><span class="hr-lv-dot" anvil:name="dot"></span><anvil-component type="DropDown" name="color_drop"></anvil-component></div>
+  </label>
+  <div class="st-type-actions">
+    <anvil-component type="Button" name="save_button" prop:text="Save" prop:role='["btn", "btn-sm", "btn-primary", "ic-check", "st-type-save"]'></anvil-component>
+    <anvil-component type="Button" name="delete_button" prop:text="Delete" prop:role='["btn", "btn-sm", "btn-ghost", "btn-icon", "ic-trash", "sr-text", "st-type-del"]'></anvil-component>
+  </div>
+</div>
+</div>

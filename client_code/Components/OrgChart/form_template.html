@@ -1,0 +1,28 @@
+---
+custom_component: true
+properties:
+  - name: data
+    type: object
+    description: "org_chart() reply: {nodes, open_roles, company}"
+    default_binding_prop: true
+  - name: animate
+    type: boolean
+    default_value: false
+    description: Draw the tree branch by branch (the landing hero)
+  - name: focus
+    type: string
+    default_value: ""
+    description: Employee id to highlight and scroll to
+events:
+  - name: select
+    default_event: true
+    description: A person was clicked
+    parameters:
+      - name: emp_id
+toolbox_item:
+  title: Org chart
+  group: HR Platform
+help_text: |
+  The company's reporting lines as a tidy tree (theme/assets/hr-engines.js HR.orgChart).
+---
+<div class="hr-org-wrap"><div class="hr-org-host" anvil:dom-node="host" tabindex="0" aria-label="Org chart, scroll sideways to see everyone"></div></div>
