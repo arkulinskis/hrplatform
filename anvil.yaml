@@ -1372,13 +1372,36 @@ db_schema:
     server: full
     title: Users
 metadata:
-  description: 'HR Platform: say what it does in one sentence (link previews).'
-  logo_img: asset:icon-512.png
-  title: HR Platform
+  description: "Employee records, org chart, time off, hiring with a careers page, onboarding, reviews, eNPS and HR reports in one private workspace for small companies."
+  logo_img: "asset:icon-512.png"
+  title: "HR Platform: HR software for small teams"
 name: HR Platform
 native_deps:
   head_html: |
     <script src="_/theme/legal-kit.js?v=cd14d5a918"></script>
+    <!-- seo:start (APP_MAKER/seo: edit seo/apps/hrplatform.json and run seo.py, not here) -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="keywords" content="HR software for small business, HRIS, BambooHR alternative, employee records software, time off tracker, leave management, applicant tracking system, onboarding checklist, performance reviews, eNPS survey, org chart software, payroll export">
+    <meta name="author" content="Arkvital">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="HR Platform">
+    <meta property="og:title" content="HR Platform: HR software for small teams">
+    <meta property="og:description" content="Employee records, org chart, time off, hiring with a careers page, onboarding, reviews, eNPS and HR reports in one private workspace for small companies.">
+    <meta property="og:locale" content="en_CA">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="HR Platform: HR software for small teams">
+    <meta name="twitter:description" content="Employee records, org chart, time off, hiring with a careers page, onboarding, reviews, eNPS and HR reports in one private workspace for small companies.">
+    <noscript><div class="seo-noscript">
+    <h1>HR Platform: HR software for small teams</h1>
+    <p>Employee records, org chart, time off, hiring with a careers page, onboarding, reviews, eNPS and HR reports in one private workspace for small companies.</p>
+    <p>HR Platform keeps one record per person and builds every HR task on it: job and pay history with effective dates, time off with approvals, hiring with a public careers page, onboarding and offboarding checklists, review cycles, goals, kudos, an anonymous eNPS pulse, policies people acknowledge and announcements.</p>
+    <p>Pay and personal details are private by role: colleagues see the basics, managers see their own people, HR sees everything and can preview the app as anyone. A new workspace starts with a sample company to explore, and the whole company can be exported in one click.</p>
+    <p>Who it's for: HR people, founders and managers at companies of 5 to 500 people</p>
+    <h2>What it does</h2><ul><li>Employee profiles with effective-dated job and pay history</li><li>Org chart drawn from reporting lines, with open roles</li><li>Time off in working days, approvals and a who&#x27;s-out calendar</li><li>Hiring pipeline, public careers page and one-click hire</li><li>Onboarding and offboarding checklists by role</li><li>Review cycles, goals, kudos and an anonymous eNPS pulse</li><li>Policies with acknowledgements, and announcements</li><li>Reports and a payroll export for any period</li><li>Spreadsheet import, full data export and a sample company to explore</li></ul>
+    <h2>Questions</h2><h3>Does HR Platform run payroll?</h3><p>No. It gives you a clean payroll export for any period (pay, changes, paid and unpaid days off) for your payroll provider.</p><h3>Who can see salaries?</h3><p>Only the person, the managers above them and HR. Colleagues see name, job, team, work email and birthday day.</p><h3>Are pulse surveys anonymous?</h3><p>Yes. Answers are stored without names and results only show after three people answer.</p><h3>Can I try it before adding my real people?</h3><p>Yes. A new workspace can start with a 26-person sample company that you remove in one click.</p>
+    <p><a href="/about">About HR Platform</a> &middot; <a href="/llms.txt">HR Platform for AI assistants</a> &middot; Made by <a href="https://arkvital.com">Arkvital</a>, Montreal, Canada. HR Platform needs JavaScript in your browser.</p>
+    </div></noscript>
+    <!-- seo:end -->
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#f6f5f1">
     <meta name="apple-mobile-web-app-capable" content="yes">
