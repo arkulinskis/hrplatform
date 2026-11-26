@@ -68,8 +68,8 @@ SEO = {
    "Yes. A new workspace can start with a 26-person sample company that you remove in one click."
   ]
  ],
- "site": "",
- "updated": "2026-11-25",
+ "site": "https://hr-platform.anvil.app",
+ "updated": "2026-11-26",
  "icon": "icon-512.png",
  "colors": {
   "bg": "#f6f5f1",
