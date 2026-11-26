@@ -6,7 +6,7 @@ place; managers approve and review their team; employees serve themselves from a
 [Anvil](https://anvil.works) as native Anvil Forms (Python + HTML templates, a layout, custom components, RepeatingPanels).
 
 - **App repo:** github.com/arkulinskis/hrplatform (branch `master`). Anvil pulls `master`.
-- **Live:** not published yet (waiting for the Anvil clone + publish).
+- **Live:** https://hr-platform.anvil.app (Anvil app id KDAE63RLZGA32RE2).
 - **Backlog:** [BACKLOG.md](BACKLOG.md): every researched feature by category, what's built and what's next.
 
 ## What it does

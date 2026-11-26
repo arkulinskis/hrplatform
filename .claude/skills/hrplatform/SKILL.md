@@ -13,7 +13,7 @@ every area (time off, hiring, onboarding, performance, policies, reports) hangs 
 
 **Where it lives:**
 - Folder `C:\Users\arkvi\Documents\CLAUDE\hrplatform\` = the git clone of **github.com/arkulinskis/hrplatform**, branch `master`.
-  "git" layout: the folder *is* the Anvil app. Anvil pulls master; pushing is the deploy. Live: not published yet.
+  "git" layout: the folder *is* the Anvil app. Anvil pulls master; pushing is the deploy. Live: https://hr-platform.anvil.app (app id KDAE63RLZGA32RE2).
 - Made from `C:\Users\arkvi\Documents\CLAUDE\APP_MAKER\template-forms` (native Anvil Forms, Nov 2026). Anvil's own agent
   skills describe the same model: `client-forms`, `data-models`, `server-code`, `client-modules`, `anvil-yaml`
   (github.com/anvil-works/anvil-agent-references; see APP_MAKER/ANVIL_NOTES.md, "Native Anvil Forms").
