@@ -1372,9 +1372,10 @@ db_schema:
     server: full
     title: Users
 metadata:
-  description: "Employee records, org chart, time off, hiring with a careers page, onboarding, reviews, eNPS and HR reports in one private workspace for small companies."
-  logo_img: "asset:icon-512.png"
-  title: "HR Platform: HR software for small teams"
+  description: Employee records, org chart, time off, hiring with a careers page, onboarding, reviews, eNPS and HR reports
+    in one private workspace for small companies.
+  logo_img: asset:icon-512.png
+  title: 'HR Platform: HR software for small teams'
 name: HR Platform
 native_deps:
   head_html: |
@@ -1439,7 +1440,7 @@ native_deps:
     <script src="_/theme/app-kit.js?v=9bf796fb6e"></script>
     <link rel="stylesheet" href="_/theme/hr.css?v=519ef3a74b">
     <link rel="stylesheet" href="_/theme/hr-time.css?v=12a08a5bdd">
-    <link rel="stylesheet" href="_/theme/hr-hiring.css?v=1814892763">
+    <link rel="stylesheet" href="_/theme/hr-hiring.css?v=405331a7b0">
     <link rel="stylesheet" href="_/theme/hr-perf.css?v=eb51820895">
     <script src="_/theme/hr-engines.js?v=ebfeefeb58"></script>
 package_name: HR_Platform
