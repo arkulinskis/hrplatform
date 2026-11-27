@@ -25,6 +25,7 @@ class PlanOffer(PlanOfferTemplate):
         self.year_button.visible = bool(s.get("yearly"))
         self.month_button.visible = bool(s.get("yearly"))
         self.seats_field.visible = bool(s.get("per_seat"))
+        self.seats_label.text = s.get("seat_label") or "Seats"
         self.seats_box.text = str(max(s.get("min_seats") or 1, (s.get("free_seats") or 0) + 1))
         self.paid_list.text = "\n".join("+ " + p for p in s.get("paid") or [])
         self.free_list.text = "\n".join("- " + p for p in s.get("free") or [])

@@ -188,7 +188,8 @@ def active(user=None):
 
 
 def seats_ok(user, n):
-    """Is n seats (people, employees) allowed? FREE_SEATS are always allowed; above that, the plan's seat count."""
+    """Is a total of n seats (people, employees) allowed? Up to FREE_SEATS: always. Above that the plan must cover
+    all n seats (per-seat plans count every seat, not just the extra ones)."""
     if not gate_on() or n <= cfg("FREE_SEATS", 0):
         return True
     if user is not None and _is_admin(user):
@@ -220,7 +221,7 @@ def subscription_status():
     return {"gate": on, "active": has, "state": state, "name": cfg("APP_NAME", "this app"),
             "plan": cfg("PLAN_NAME", "Pro"), "price": cfg("PRICE", 29), "yearly": cfg("YEARLY", None),
             "currency": "USD", "trial_days": cfg("TRIAL_DAYS", 14), "per_seat": cfg("PER_SEAT", False),
-            "free_seats": cfg("FREE_SEATS", 0), "min_seats": cfg("MIN_SEATS", 1), "seats": p["seats"] if p else None,
+            "free_seats": cfg("FREE_SEATS", 0), "seat_label": cfg("SEAT_LABEL", "Seats"), "min_seats": cfg("MIN_SEATS", 1), "seats": p["seats"] if p else None,
             "paid": list(cfg("PAID", [])), "free": list(cfg("FREE", [])), "test_mode": on and "_test_" in stripe_key(),
             "period_end": _iso(p["period_end"]) if p else None, "can_manage": bool(p is not None and p["customer"]),
             "admin": _is_admin(user)}
@@ -235,6 +236,10 @@ def subscription_checkout(interval="month", seats=None):
     p = plan_of(me)
     if p is not None and p["status"] in ACTIVE:
         return _fail("You already have a plan. Use Manage plan to change it.")
+    owner = cfg("owner_of", None)
+    payer = owner(me) if callable(owner) else me
+    if payer is not None and payer != me:   # someone else pays here (studio / company owner): their plan counts
+        return _fail("%s pays for the plan here. Ask them to start it." % ((payer["email"] or "The owner")))
     yearly = cfg("YEARLY", None)
     interval = "year" if interval == "year" and yearly else "month"
     price = yearly if interval == "year" else cfg("PRICE", 29)

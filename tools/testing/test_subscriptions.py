@@ -88,6 +88,7 @@ def main():
     check(not S.active(boss) and S.subscription_status()["state"] == "none", "locked with the key")
     check(S.active(admin), "admins always")
     S.CFG.PER_SEAT, S.CFG.FREE_SEATS, S.CFG.MIN_SEATS = True, 5, 3
+    S.CFG.YEARLY = 290   # the test needs a yearly price whatever the app sets
     check(S.seats_ok(boss, 5) and not S.seats_ok(boss, 6), "free seats only")
 
     r = S.subscription_checkout("year", 8)
