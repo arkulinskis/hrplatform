@@ -11,4 +11,6 @@ legal.setup(LEGAL_THEME)
 state.set_me(anvil.server.call("get_me"))
 if state.me():
     legal.refresh_soon()
+from . import subscription  # payments: free until the App Secret stripe_secret_key is set
+subscription.handle_return()
 router.start()

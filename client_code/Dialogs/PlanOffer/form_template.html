@@ -1,0 +1,27 @@
+<div class="ui plan-offer">
+  <h2 class="dlg-h"><anvil-component type="Label" name="title_label" prop:text="Paid plan"></anvil-component></h2>
+  <div class="ui-stack">
+    <anvil-component type="Label" name="feature_label" prop:role='["fine-print"]' prop:visible="false"></anvil-component>
+    <anvil-component type="Label" name="price_label" prop:role='["stat-num"]'></anvil-component>
+    <anvil-component type="Label" name="price_note" prop:role='["fine-print"]'></anvil-component>
+    <div class="ui-row">
+      <anvil-component type="Button" name="month_button" prop:text="Monthly" prop:role='["seg", "on"]'></anvil-component>
+      <anvil-component type="Button" name="year_button" prop:text="Yearly" prop:role='["seg"]'></anvil-component>
+    </div>
+    <label class="ui-field" anvil:name="seats_field"><span>Seats</span>
+      <anvil-component type="TextBox" name="seats_box" prop:type="number"></anvil-component>
+    </label>
+    <anvil-component type="Label" name="paid_head" prop:text="What the plan adds" prop:bold="true"></anvil-component>
+    <anvil-component type="Label" name="paid_list"></anvil-component>
+    <anvil-component type="Label" name="free_head" prop:text="Free for everyone" prop:bold="true"></anvil-component>
+    <anvil-component type="Label" name="free_list" prop:role='["fine-print"]'></anvil-component>
+    <anvil-component type="Label" name="message" prop:role='["msg-error"]' prop:visible="false"></anvil-component>
+    <anvil-component type="Label" name="test_note" prop:text="Test mode: pay with card 4242 4242 4242 4242, any future date, any CVC." prop:role='["fine-print"]' prop:visible="false"></anvil-component>
+    <div class="ui-row end">
+      <anvil-component type="Button" name="close_button" prop:text="Not now" prop:role='["btn", "btn-ghost"]'></anvil-component>
+      <anvil-component type="Button" name="manage_button" prop:text="Manage plan" prop:role='["btn"]' prop:visible="false"></anvil-component>
+      <anvil-component type="Button" name="buy_button" prop:text="Start free trial" prop:role='["btn", "btn-primary"]'></anvil-component>
+    </div>
+    <anvil-component type="Label" name="secure_note" prop:text="Secure checkout by Stripe. Cancel any time from Manage plan." prop:role='["fine-print"]'></anvil-component>
+  </div>
+</div>

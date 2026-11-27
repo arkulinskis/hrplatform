@@ -50,6 +50,11 @@ class Admin(AdminTemplate):
         self._filter = value
         self._feedback()
 
+    @handle("plans_button", "click")
+    def plans_button_click(self, **event_args):
+        from ...Dialogs.PlanAdmin import PlanAdmin
+        alert(PlanAdmin(), buttons=[], role="app-dialog", large=True)
+
     @handle("f_new", "click")
     def f_new_click(self, **event_args):
         self._set_filter("new")

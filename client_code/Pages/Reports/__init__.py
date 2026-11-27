@@ -3,7 +3,7 @@ import datetime
 from anvil import *
 
 from ._anvil_designer import ReportsTemplate
-from ... import state
+from ... import plan, state, subscription
 
 
 def _top(rows):
@@ -102,16 +102,22 @@ class Reports(ReportsTemplate):
     def __init__(self, args=(), **properties):
         super().__init__(**properties)
         hr = state.is_hr()
+        paid = subscription.active()   # always True while the paid plan is off
         self.denied_box.visible = not hr
-        self.main_box.visible = hr
+        self.locked_box.visible = hr and not paid
+        self.main_box.visible = hr and paid
         for box in (self.start_box, self.end_box):
             state.set_control_attr(box, "type", "date")
         today = datetime.date.today()
         first = today.replace(day=1)
         last = (first.replace(day=28) + datetime.timedelta(days=4)).replace(day=1) - datetime.timedelta(days=1)
         self.start_box.text, self.end_box.text = first.isoformat(), last.isoformat()
-        if hr:
+        if hr and paid:
             self._load()
+
+    @handle("plan_button", "click")
+    def plan_button_click(self, **event_args):
+        plan.need("Reports and exports")
 
     def _load(self):
         d = state.call("get_reports")

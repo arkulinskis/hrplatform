@@ -14,6 +14,13 @@
         <p>Company-wide numbers like headcount, turnover and pay exports are only shown to HR admins. Ask your HR team if you need a number.</p>
       </div>
 
+      <div anvil:name="locked_box" class="ui-empty">
+        <i class="ic ic-lock"></i>
+        <h2>Reports and exports are on the paid plan</h2>
+        <p>Headcount, turnover, hiring and time-off charts, the people list and payroll exports. Your full data export in Settings stays free.</p>
+        <anvil-component type="Button" name="plan_button" prop:text="See the plan" prop:role='["btn", "btn-primary"]'></anvil-component>
+      </div>
+
       <div anvil:name="main_box">
         <div class="hr-stats rp-stats">
           <div class="hr-stat"><anvil-component type="Label" name="st_head" prop:role='["hr-big"]'></anvil-component><span>people (headcount)</span></div>

@@ -228,6 +228,8 @@ def add_person(data, onboarding=True):
     W.require_admin(cx)
     if not isinstance(data, dict):
         return C.fail("Nothing to add.")
+    if not W.seats_ok(cx, 1):
+        return {"ok": False, "error": W.SEATS_MESSAGE, "plan": True}
     try:
         e = _new_person(cx, data)
     except ValueError as err:
@@ -295,6 +297,8 @@ def import_people(csv_text, commit=False):
     if not commit:
         return C.ok(rows=[{k: v for k, v in p.items() if k != "data"} for p in preview], problems=problems,
                     total=len(preview), mapped=[h for h in header if h])
+    if not W.seats_ok(cx, len([p for p in preview if not p["issues"]])):
+        return {"ok": False, "error": W.SEATS_MESSAGE, "plan": True}
     added, by_mail = [], {}
     for p in preview:
         if p["issues"]:
@@ -351,6 +355,8 @@ def set_status(emp_id, status):
     if status == "terminated":
         return C.fail("Use Offboard to end someone's employment.")
     old = e["status"]
+    if old == "terminated" and not e["is_demo"] and not W.seats_ok(cx, 1):   # rehiring takes a seat again
+        return {"ok": False, "error": W.SEATS_MESSAGE, "plan": True}
     if old != status:
         e["status"] = status
         if old == "terminated":

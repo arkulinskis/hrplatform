@@ -250,7 +250,28 @@ def me_extras(user):
             "emp_id": cx.emp.get_id() if cx.emp is not None else None,
             "emp_name": cx.name if cx.emp is not None else None,
             "viewing_as": name(cx.emp) if cx.viewing_as else None,
-            "has_sample": len(app_tables.employees.search(company=company, is_demo=True)) > 0}
+            "has_sample": len(app_tables.employees.search(company=company, is_demo=True)) > 0,
+            "is_owner": company["owner"] is not None and company["owner"] == user}
+
+
+def paid(cx):
+    """Paid plan check for the company (Subscriptions; the company owner pays, see subscriptions_config.owner_of).
+    Gate off, the sample company and platform admins always pass."""
+    from . import Subscriptions
+    return cx.company is None or bool(cx.company["is_demo"]) or Subscriptions.active(cx.user)
+
+
+def seats_ok(cx, adding=1):
+    """May the company have `adding` more people? Counts current (not former, not sample) employees; the first
+    FREE_SEATS are free, above that the plan's seat count (Subscriptions.seats_ok)."""
+    from . import Subscriptions
+    if not Subscriptions.gate_on() or cx.company is None or cx.company["is_demo"]:
+        return True
+    n = len([e for e in app_tables.employees.search(company=cx.company) if not e["is_demo"] and e["status"] != "terminated"])
+    return Subscriptions.seats_ok(cx.user, n + adding)
+
+
+SEATS_MESSAGE = "The first 5 employees are free. Employee 6 and up need the paid plan, with a seat for each person."
 
 
 def _slug(text):

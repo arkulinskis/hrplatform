@@ -2,7 +2,7 @@ import anvil.server
 from anvil import *
 
 from ._anvil_designer import AddPersonTemplate
-from ... import state
+from ... import plan, state
 
 
 class AddPerson(AddPersonTemplate):
@@ -43,5 +43,7 @@ class AddPerson(AddPersonTemplate):
             self.save_button.enabled = True
         if not r.get("ok"):
             self.message.text, self.message.visible = r.get("error") or "That didn't work.", True
+            if r.get("plan"):   # employee 6 and up: the paid plan (only once Stripe is set up)
+                plan.need("Employee 6 and up")
             return
         self.raise_event("x-close-alert", value=r["person"])

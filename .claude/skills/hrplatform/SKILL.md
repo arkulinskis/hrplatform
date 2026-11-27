@@ -132,6 +132,7 @@ tools/                     check.py, assets.py, build_icons.py, make_icons.py, u
 - **Restyle:** tokens at the top of app.css (light and dark blocks), fonts in head_html, the spinner in theme.css
   (`python -I APP_MAKER/tools/loaders.py apply hrplatform <preset>`), `LEGAL_THEME` in startup.py.
 - **Icon:** edit theme/assets/icon.svg, `python -I tools/make_icons.py`, then `python tools/assets.py`.
+- **Paid feature (plan gate)**: server `if not W.paid(cx): return C.fail(Subscriptions.LOCKED_MESSAGE)`, new people `W.seats_ok(cx, n)` (reply `"plan": True`); page side `plan.gate("Feature")` / `plan.need(...)` (owner sees the offer, other admins a note).
 
 ## Gotchas
 

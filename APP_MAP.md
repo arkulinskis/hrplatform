@@ -26,7 +26,7 @@ around them with an offset instead of whole files.
 ## Notes
 
 <!-- NOTES: hand-written, kept when the map is regenerated -->
-_Add what the code doesn't say: where tricky features live, decisions, gotchas. Kept when the map is regenerated._
+- **Paid plan (2026-11, branch payments)**: kit `Subscriptions.py` / `subscriptions_config.py` (per seat, owner_of) / `subscription.py` / `Dialogs/PlanOffer`, `PlanAdmin`; app glue `client_code/plan.py`, `Workspace.paid` / `seats_ok`, me `is_owner`. Off until `stripe_secret_key`.
 <!-- /NOTES -->
 
 ## Pages (`client_code/router.py`)

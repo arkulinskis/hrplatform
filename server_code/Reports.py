@@ -9,6 +9,7 @@ from anvil.tables import app_tables
 
 from . import common as C
 from . import Workspace as W
+from . import Subscriptions
 from . import Perform
 
 
@@ -37,6 +38,8 @@ def _counts(rows, key):
 def get_reports():
     cx = W.ctx()
     W.require_admin(cx)
+    if not W.paid(cx):
+        return C.fail(Subscriptions.LOCKED_MESSAGE)
     today = C.now().date()
     every = list(app_tables.employees.search(company=cx.company))
     current = [e for e in every if e["status"] in ("active", "leave")]
@@ -98,6 +101,8 @@ def _csv(rows):
 def export_people_csv(include_pay=False):
     cx = W.ctx()
     W.require_admin(cx)
+    if not W.paid(cx):
+        return C.fail(Subscriptions.LOCKED_MESSAGE)
     head = ["First name", "Last name", "Preferred name", "Work email", "Title", "Department", "Location", "Manager",
             "Employment type", "Status", "Start date", "End date"]
     if include_pay:
@@ -118,6 +123,8 @@ def payroll_export(start, end):
     """One row per person employed in the period: pay, changes in the period, paid and unpaid days off."""
     cx = W.ctx()
     W.require_admin(cx)
+    if not W.paid(cx):
+        return C.fail(Subscriptions.LOCKED_MESSAGE)
     try:
         s, e_ = dt.date.fromisoformat(str(start)[:10]), dt.date.fromisoformat(str(end)[:10])
     except ValueError:

@@ -2,7 +2,7 @@ import anvil.server
 from anvil import *
 
 from ._anvil_designer import ImportPeopleTemplate
-from ... import state
+from ... import plan, state
 
 TEMPLATE_HEADERS = ["First name", "Last name", "Email", "Title", "Department", "Location", "Manager email",
                     "Start date", "Employment type", "Birthday", "Pay rate"]
@@ -85,5 +85,7 @@ class ImportPeople(ImportPeopleTemplate):
             raise
         if not r.get("ok"):
             self.import_button.enabled = True
+            if r.get("plan"):   # more than the free / paid seats: the paid plan (only once Stripe is set up)
+                plan.need("Employee 6 and up")
             return self._error(r.get("error") or "That didn't work.")
         self.raise_event("x-close-alert", value={"added": r["added"], "skipped": r["skipped"]})

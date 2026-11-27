@@ -1,7 +1,7 @@
 from anvil import *
 
 from ._anvil_designer import ProfileTemplate
-from ... import auth, router, state
+from ... import auth, router, state, subscription
 
 
 class Profile(ProfileTemplate):
@@ -20,6 +20,7 @@ class Profile(ProfileTemplate):
         self.email_line.text = (me.get("email") or "") + (" · member since " + joined if joined else "")
         self.name_box.text = me.get("name") or ""
         self.admin_link.visible = bool(me.get("is_admin"))
+        self.plan_link.visible = subscription.gate_on()   # paid plans only show once Stripe is set up
 
     def _show_theme(self):
         t = state.theme()
@@ -50,6 +51,12 @@ class Profile(ProfileTemplate):
     def reset_button_click(self, **event_args):
         r = auth.reset(state.me()["email"])
         state.toast(r["message"], "ok")
+
+    def plan_click(self, event):
+        if (state.me() or {}).get("is_owner"):
+            subscription.offer()
+        else:
+            state.toast("Your company's owner manages the plan.")
 
     def feedback_click(self, event):
         state.feedback()

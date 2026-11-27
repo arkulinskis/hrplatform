@@ -61,6 +61,19 @@ and offboarding templates; spreadsheet import; full company export (JSON); remov
 **Site admin** (the app owner, not company HR): users, old feedback, the public demo company. Feedback goes through
 Prepsto ("Submit feedback" in the footer).
 
+## Paid plan ($4 per employee a month, first 5 employees free)
+
+Off until the App Secret `stripe_secret_key` holds a Stripe key: until then everything stays free and no prices show.
+Setup: `APP_MAKER/money/lifetime/STRIPE_SETUP.md` (webhook optional: `/_/api/subscription/stripe`, secret `stripe_webhook_secret`).
+
+- **Free:** up to 5 employees with every HR feature; the full company data export.
+- **Paid (14-day trial, per seat, 8 seats minimum):** employee 6 and up (`Staff.add_person`, `import_people`, rehiring in
+  `set_status`, all through `Workspace.seats_ok`), Reports and the people / payroll CSV exports (`Reports.py`, `Workspace.paid`).
+  Existing people are never touched: only adding more is checked. The company owner pays for everyone
+  (`subscriptions_config.owner_of`); other HR admins are told to ask them (`client_code/plan.py`).
+- Kit: `server_code/Subscriptions.py` + `subscriptions_config.py`, `client_code/subscription.py`, `Dialogs/PlanOffer`,
+  `Dialogs/PlanAdmin` (Admin, "Paid plans"); "Plan and billing" on Profile once the gate is on.
+
 ## Setting it up in Anvil (once)
 
 1. Anvil editor: **Create app → Clone from GitHub**, paste `https://github.com/arkulinskis/hrplatform`.
