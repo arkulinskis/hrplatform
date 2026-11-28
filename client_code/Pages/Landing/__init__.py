@@ -19,15 +19,27 @@ SAMPLE = {"company": "Larkspur Studio", "nodes": [
     "open_roles": [{"title": "Senior Backend Eng.", "department": "Engineering", "manager_id": "e"}]}
 
 
+# The app's video on the Addanapp YouTube channel (APP_MAKER/youtube/manifest.json), shown in the Watch section.
+YT_VIDEO = "C9M-e-trEo0"
+
+
 class Landing(LandingTemplate):
     """#landing, the front page for visitors (Persuade mode): a live org chart that draws itself, how it works,
     features, the complaints we fixed, audiences, FAQ. Static copy lives in the template."""
 
     def __init__(self, args=(), **properties):
         super().__init__(**properties)
+        self.dom_nodes["yt_cover"].addEventListener("click", self._play)
         me = state.me()
         self.guest_cta.visible = not me
         self.member_cta.visible = bool(me)
         if me:
             state.set_attr(self.band_link, "href", "#home")
         self.chart.data = SAMPLE
+
+    def _play(self, event):
+        """Swap the video's cover for YouTube's player (privacy-enhanced); nothing loads from YouTube before this click."""
+        self.dom_nodes["yt_frame"].innerHTML = (
+            '<iframe src="https://www.youtube-nocookie.com/embed/' + YT_VIDEO + '?autoplay=1&rel=0&playsinline=1" '
+            'title="HR Platform video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen '
+            'referrerpolicy="strict-origin-when-cross-origin"></iframe>')
